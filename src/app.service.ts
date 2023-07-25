@@ -3,8 +3,6 @@ import { GetAllDataProps } from "./interfaces";
 
 @Injectable()
 export class AppService {
-  getAsmaulHusna() {}
-
   getAllData(): GetAllDataProps {
     return {
       author: "Haikel Ilham Hakim",
