@@ -1,5 +1,5 @@
 import { Controller, Get } from "@nestjs/common";
-import { AsmaulHusnaProps } from "src/interfaces";
+import { AsmaulHusnaProps } from "../interfaces";
 import { ApiService } from "./api.service";
 
 @Controller()
