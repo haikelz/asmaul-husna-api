@@ -16,7 +16,7 @@ describe("AppController", () => {
 
   describe("root", () => {
     it("should return array of object", () => {
-      expect(appController.getAllData()).toBe([{}]);
+      expect(appController.getHomeData).toBe({});
     });
   });
 });

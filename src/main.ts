@@ -6,7 +6,7 @@ async function bootstrap() {
   await app
     .listen(5000)
     .then(() => {
-      console.log("Success! Started on port 5000");
+      console.log("Success! Running in port 5000");
     })
     .catch((err) => {
       console.error(err);
