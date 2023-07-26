@@ -5,13 +5,107 @@
 
 ## Endpoints
 
-| Endpoint        | Description                                |
-| --------------- | ------------------------------------------ |
-| `/`             | Get all Asma'ul Husna                      |
-| `/:urutan`      | Get spesific Asma'ul Husna based on urutan |
-| `/latin/:latin` | Get spesific Asma'ul Husna based on latin  |
+| Endpoint        | Method | Description                                |
+| --------------- | ------ | ------------------------------------------ |
+| `/`             | GET    | Get all Asma'ul Husna                      |
+| `/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
+| `/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
 
-## Stack
+## Response Example
+
+**Get all Asma'ul Husna**
+
+Request:
+
+```ts
+fetch("https://asmaul-husna-api.vercel.app/api/all")
+  .then((res) => res.json())
+  .then((result) => console.log(result));
+```
+
+Response:
+
+```json
+{
+  "statusCode": 200,
+  "total": 99,
+  "data": [
+    {
+      "urutan": 1,
+      "latin": "Ar Rahman",
+      "arab": "الرحمن",
+      "arti": "Yang Maha Pengasih"
+    },
+    {
+      "urutan": 2,
+      "latin": "Ar Rahiim",
+      "arab": "الرحيم",
+      "arti": "Yang Maha Penyayang"
+    },
+    {
+      "urutan": 3,
+      "latin": "Al Malik",
+      "arab": "الملك",
+      "arti": "Yang Maha Merajai / Memerintah"
+    },
+    ....
+  ]
+}
+```
+
+**Get spesific Asma'ul Husna based on urutan**
+
+Request:
+
+```ts
+fetch("https://asmaul-husna-api.vercel.app/api/1")
+  .then((res) => res.json())
+  .then((result) => console.log(result));
+```
+
+Response:
+
+```json
+{
+  "statusCode": 200,
+  "total": 1,
+  "data": {
+    "urutan": 1,
+    "latin": "Ar Rahman",
+    "arab": "الرحمن",
+    "arti": "Yang Maha Pengasih"
+  }
+}
+```
+
+**Get spesific Asma'ul Husna based on latin**
+
+Note: the latin can be lowercase or uppercase.
+
+Request:
+
+```ts
+fetch("https://asmaul-husna-api.vercel.app/api/latin/ar-rahman")
+  .then((res) => res.json())
+  .then((result) => console.log(result));
+```
+
+Response:
+
+```json
+{
+  "statusCode": 200,
+  "total": 1,
+  "data": {
+    "urutan": 1,
+    "latin": "Ar Rahman",
+    "arab": "الرحمن",
+    "arti": "Yang Maha Pengasih"
+  }
+}
+```
+
+## Tech Stack
 
 - Nest JS
 - Typescript
@@ -21,4 +115,4 @@
 - First, clone this repo.
 - Install all needed depedencies with `pnpm install`.
 - After that, you can start the project with `pnpm run start:dev` and see the result.
-- Default port is 5000. You can change and edit the port in `src/main.ts` file.
+- The Default port is 5000. You can change and edit the port in `src/main.ts` file.
