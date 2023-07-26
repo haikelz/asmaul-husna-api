@@ -1,5 +1,5 @@
 import { Controller, Get, NotFoundException, Param } from "@nestjs/common";
-import { GetDataBasedOnUrutanProps } from "interfaces";
+import { GetDataBasedOnUrutanProps } from "../../interfaces";
 import { ApiService } from "../api.service";
 
 @Controller()

@@ -15,20 +15,19 @@ export interface AsmaulHusnaProps {
   arti: string;
 }
 
-export interface GetAllAsmaulHusnaProps {
+interface BaseGetDataProps {
   statusCode: number;
   total: number;
+}
+
+export interface GetAllAsmaulHusnaProps extends BaseGetDataProps {
   data: AsmaulHusnaProps[];
 }
 
-export interface GetDataBasedOnLatinProps {
-  statusCode: number;
-  total: number;
+export interface GetDataBasedOnLatinProps extends BaseGetDataProps {
   data: AsmaulHusnaProps;
 }
 
-export interface GetDataBasedOnUrutanProps {
-  statusCode: number;
-  total: number;
+export interface GetDataBasedOnUrutanProps extends BaseGetDataProps {
   data: AsmaulHusnaProps;
 }
