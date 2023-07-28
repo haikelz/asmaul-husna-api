@@ -1,5 +1,5 @@
+import { GetHomeDataProps } from "@/interfaces";
 import { Injectable } from "@nestjs/common";
-import { GetHomeDataProps } from "./interfaces";
 
 @Injectable()
 export class AppService {

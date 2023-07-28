@@ -1,5 +1,6 @@
+import { GetAllAsmaulHusnaProps } from "@/interfaces";
 import { Controller, Get } from "@nestjs/common";
-import { GetAllAsmaulHusnaProps } from "../interfaces";
+
 import { ApiService } from "./api.service";
 
 @Controller()
