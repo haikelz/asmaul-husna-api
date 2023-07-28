@@ -1,7 +1,7 @@
-import { GetDataBasedOnLatinProps } from "@/interfaces";
 import { Controller, Get, NotFoundException, Param } from "@nestjs/common";
 import slugify from "slugify";
 
+import { GetDataBasedOnLatinProps } from "../../interfaces";
 import { ApiService } from "../api.service";
 
 @Controller()

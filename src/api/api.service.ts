@@ -1,6 +1,7 @@
-import { AsmaulHusnaProps } from "@/interfaces";
-import { asmaulHusna } from "@/lib/utils/data";
 import { Injectable } from "@nestjs/common";
+
+import { AsmaulHusnaProps } from "../interfaces";
+import { asmaulHusna } from "../lib/utils/data";
 
 @Injectable()
 export class ApiService {
