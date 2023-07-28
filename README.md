@@ -5,11 +5,11 @@
 
 ## Endpoints
 
-| Endpoint        | Method | Description                                |
-| --------------- | ------ | ------------------------------------------ |
-| `/`             | GET    | Get all Asma'ul Husna                      |
-| `/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
-| `/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
+| Endpoint            | Method | Description                                |
+| ------------------- | ------ | ------------------------------------------ |
+| `/api/all`          | GET    | Get all Asma'ul Husna                      |
+| `/api/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
+| `/api/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
 
 ## Response Example
 
