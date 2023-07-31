@@ -1,4 +1,6 @@
-export const asmaulHusna = [
+import { AsmaulHusnaProps } from "interfaces";
+
+export const asmaulHusna: AsmaulHusnaProps[] = [
   {
     urutan: 1,
     latin: "Ar Rahman",

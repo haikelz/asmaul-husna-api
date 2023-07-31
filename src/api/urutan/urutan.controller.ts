@@ -1,21 +1,21 @@
-import { Controller, Get, NotFoundException, Param } from "@nestjs/common";
+import { TypedParam, TypedRoute } from "@nestia/core";
+import { Controller, NotFoundException } from "@nestjs/common";
 
 import { GetDataBasedOnUrutanProps } from "../../interfaces";
 import { ApiService } from "../api.service";
-import { FindUrutanParams } from "./urutan.dto";
 
 @Controller()
 export class UrutanController {
   constructor(private readonly apiService: ApiService) {}
 
   // get data based on urutan
-  @Get("/api/:urutan")
+  @TypedRoute.Get("/api/:urutan")
   getDataBasedOnUrutan(
-    @Param() param: FindUrutanParams,
+    @TypedParam("urutan") urutan: string,
   ): GetDataBasedOnUrutanProps {
     const filteredData = this.apiService
       .getAllAsmaulHusna()
-      .filter((item) => item.urutan === Number(param.urutan))[0];
+      .filter((item) => item.urutan === Number(urutan))[0];
 
     if (!filteredData) throw new NotFoundException();
     return {
