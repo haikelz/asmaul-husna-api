@@ -3,6 +3,7 @@ import slugify from "slugify";
 
 import { GetDataBasedOnLatinProps } from "../../interfaces";
 import { ApiService } from "../api.service";
+import { FindLatinParams } from "./latin.dto";
 
 @Controller()
 export class LatinController {
@@ -11,7 +12,7 @@ export class LatinController {
   // get data based on latin
   @Get("/api/latin/:latin")
   getDataBasedOnLatin(
-    @Param() param: { latin: string },
+    @Param() param: FindLatinParams,
   ): GetDataBasedOnLatinProps {
     const filteredData = this.apiService
       .getAllAsmaulHusna()

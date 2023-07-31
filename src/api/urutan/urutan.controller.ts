@@ -2,6 +2,7 @@ import { Controller, Get, NotFoundException, Param } from "@nestjs/common";
 
 import { GetDataBasedOnUrutanProps } from "../../interfaces";
 import { ApiService } from "../api.service";
+import { FindUrutanParams } from "./urutan.dto";
 
 @Controller()
 export class UrutanController {
@@ -10,7 +11,7 @@ export class UrutanController {
   // get data based on urutan
   @Get("/api/:urutan")
   getDataBasedOnUrutan(
-    @Param() param: { urutan: string },
+    @Param() param: FindUrutanParams,
   ): GetDataBasedOnUrutanProps {
     const filteredData = this.apiService
       .getAllAsmaulHusna()
