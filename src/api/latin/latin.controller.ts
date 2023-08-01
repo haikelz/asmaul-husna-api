@@ -12,15 +12,18 @@ export class LatinController {
   // get data based on latin
   @TypedRoute.Get("/api/latin/:latin")
   getDataBasedOnLatin(
+    // latin must be string
     @TypedParam("latin") latin: string,
   ): GetDataBasedOnLatinProps {
-    const filteredData = this.apiService
-      .getAllAsmaulHusna()
-      .filter(
-        (item) =>
-          slugify(item.latin, { lower: true }) ===
-          slugify(latin, { lower: true }),
-      )[0];
+    const filteredData = this.apiService.getAllAsmaulHusna().filter(
+      (item) =>
+        /**
+         * - latin can be lowercase or uppercase
+         * - In the end, it'll be transformed to lowercase format
+         */
+        slugify(item.latin, { lower: true }) ===
+        slugify(latin, { lower: true }),
+    )[0];
 
     if (!filteredData) throw new NotFoundException();
     return {

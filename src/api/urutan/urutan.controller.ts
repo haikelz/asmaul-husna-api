@@ -11,11 +11,14 @@ export class UrutanController {
   // get data based on urutan
   @TypedRoute.Get("/api/:urutan")
   getDataBasedOnUrutan(
+    // urutan must be string
     @TypedParam("urutan") urutan: string,
   ): GetDataBasedOnUrutanProps {
-    const filteredData = this.apiService
-      .getAllAsmaulHusna()
-      .filter((item) => item.urutan === Number(urutan))[0];
+    const filteredData = this.apiService.getAllAsmaulHusna().filter(
+      (item) =>
+        // Transform urutan from string to number and compare it with item.urutan
+        item.urutan === Number(urutan),
+    )[0];
 
     if (!filteredData) throw new NotFoundException();
     return {
