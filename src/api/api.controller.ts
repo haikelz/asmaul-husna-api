@@ -8,7 +8,7 @@ import { ApiService } from "./api.service";
 export class ApiController {
   constructor(private readonly apiService: ApiService) {}
 
-  @TypedRoute.Get()
+  @TypedRoute.Get("/api/all")
   getAllAsmaulHusna(): GetAllAsmaulHusnaProps {
     return {
       statusCode: 200,
