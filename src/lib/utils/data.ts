@@ -1,4 +1,4 @@
-import { AsmaulHusnaProps } from "interfaces";
+import { AsmaulHusnaProps } from "../../interfaces";
 
 export const asmaulHusna: AsmaulHusnaProps[] = [
   {
