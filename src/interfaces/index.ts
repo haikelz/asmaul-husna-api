@@ -15,7 +15,7 @@ export interface AsmaulHusnaProps {
   arti: string;
 }
 
-interface BaseGetDataProps {
+export interface BaseGetDataProps {
   statusCode: number;
   total: number;
 }

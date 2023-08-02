@@ -1,22 +1,20 @@
 import { Test, TestingModule } from "@nestjs/testing";
 
 import { ApiService } from "../api.service";
-import { LatinController } from "./latin.controller";
 import { LatinService } from "./latin.service";
 
-describe("LatinController", () => {
-  let controller: LatinController;
+describe("LatinService", () => {
+  let service: LatinService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [LatinController],
       providers: [ApiService, LatinService],
     }).compile();
 
-    controller = module.get<LatinController>(LatinController);
+    service = module.get<ApiService, LatinService>(LatinService);
   });
 
   it("should be defined", () => {
-    expect(controller).toBeDefined();
+    expect(service).toBeDefined();
   });
 });

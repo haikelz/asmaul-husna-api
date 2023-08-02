@@ -10,10 +10,6 @@ export class ApiController {
 
   @TypedRoute.Get("/api/all")
   getAllAsmaulHusna(): GetAllAsmaulHusnaProps {
-    return {
-      statusCode: 200,
-      total: this.apiService.getAllAsmaulHusna().length,
-      data: this.apiService.getAllAsmaulHusna(),
-    };
+    return this.apiService.getAllAsmaulHusna();
   }
 }

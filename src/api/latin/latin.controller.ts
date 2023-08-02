@@ -1,13 +1,12 @@
 import { TypedParam, TypedRoute } from "@nestia/core";
-import { Controller, NotFoundException } from "@nestjs/common";
-import slugify from "slugify";
+import { Controller } from "@nestjs/common";
 
 import { GetDataBasedOnLatinProps } from "../../interfaces";
-import { ApiService } from "../api.service";
+import { LatinService } from "./latin.service";
 
 @Controller()
 export class LatinController {
-  constructor(private readonly apiService: ApiService) {}
+  constructor(private readonly latinService: LatinService) {}
 
   // get data based on latin
   @TypedRoute.Get("/api/latin/:latin")
@@ -15,21 +14,6 @@ export class LatinController {
     // latin must be string
     @TypedParam("latin") latin: string,
   ): GetDataBasedOnLatinProps {
-    const filteredData = this.apiService.getAllAsmaulHusna().filter(
-      (item) =>
-        /**
-         * - latin can be lowercase or uppercase
-         * - In the end, it'll be transformed to lowercase format
-         */
-        slugify(item.latin, { lower: true }) ===
-        slugify(latin, { lower: true }),
-    )[0];
-
-    if (!filteredData) throw new NotFoundException();
-    return {
-      statusCode: 200,
-      total: 1,
-      data: filteredData,
-    };
+    return this.latinService.getDataBasedOnLatin(latin);
   }
 }

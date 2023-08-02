@@ -7,6 +7,9 @@ import {
 import { AppModule } from "./app.module";
 
 async function bootstrap() {
+  /**
+   * @see https://docs.nestjs.com/techniques/performance
+   */
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
