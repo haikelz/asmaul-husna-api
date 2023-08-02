@@ -1,3 +1,4 @@
+import compression from "@fastify/compress";
 import { NestFactory } from "@nestjs/core";
 import {
   FastifyAdapter,
@@ -17,6 +18,7 @@ async function bootstrap() {
   );
 
   try {
+    await app.register(compression, { encodings: ["gzip", "deflate"] });
     await app.listen(5000, "0.0.0.0");
     console.log("Success! Running in port 5000");
   } catch (err) {
