@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { GetDataBasedOnUrutanProps } from "interfaces";
 
+import { GetDataBasedOnUrutanProps } from "../../interfaces";
 import { ApiService } from "../api.service";
 
 @Injectable()

@@ -4,11 +4,11 @@ import { Controller } from "@nestjs/common";
 import { GetAllAsmaulHusnaProps } from "../interfaces";
 import { ApiService } from "./api.service";
 
-@Controller()
+@Controller("/api/all")
 export class ApiController {
   constructor(private readonly apiService: ApiService) {}
 
-  @TypedRoute.Get("/api/all")
+  @TypedRoute.Get()
   getAllAsmaulHusna(): GetAllAsmaulHusnaProps {
     return this.apiService.getAllAsmaulHusna();
   }

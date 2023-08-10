@@ -4,12 +4,12 @@ import { Controller } from "@nestjs/common";
 import { GetDataBasedOnLatinProps } from "../../interfaces";
 import { LatinService } from "./latin.service";
 
-@Controller()
+@Controller("/api/latin/:latin")
 export class LatinController {
   constructor(private readonly latinService: LatinService) {}
 
   // get data based on latin
-  @TypedRoute.Get("/api/latin/:latin")
+  @TypedRoute.Get()
   getDataBasedOnLatin(
     // latin must be string
     @TypedParam("latin") latin: string,

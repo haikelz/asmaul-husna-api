@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { GetDataBasedOnLatinProps } from "interfaces";
 import slugify from "slugify";
 
+import { GetDataBasedOnLatinProps } from "../../interfaces";
 import { ApiService } from "../api.service";
 
 @Injectable()
