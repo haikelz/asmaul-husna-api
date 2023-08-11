@@ -3,12 +3,12 @@ import { Controller } from "@nestjs/common";
 
 import { UrutanService } from "./urutan.service";
 
-@Controller()
+@Controller("/api/:urutan")
 export class UrutanController {
   constructor(private readonly urutanService: UrutanService) {}
 
   // get data based on urutan
-  @TypedRoute.Get("/api/:urutan")
+  @TypedRoute.Get()
   getDataBasedOnUrutan(
     // urutan must be number
     @TypedParam("urutan") urutan: number,
