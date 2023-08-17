@@ -1,9 +1,10 @@
 {
-  "name": "api",
+  "name": "asmaul-husna-api",
   "version": "0.0.1",
   "description": "asmaul-husna-api is an API to get the list of Asma'ul Husna",
   "author": "Haikel Ilham Hakim",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

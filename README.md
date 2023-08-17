@@ -115,5 +115,5 @@ Response:
 
 - First, clone this repo.
 - Install all needed depedencies with `pnpm install`.
-- After that, you can start the project with `pnpm run start:dev` and see the result.
-- The Default port is 5000. You can change and edit the port in `src/main.ts` file.
+- After that, you can start the project with `pnpm run dev` and see the result in `localhost:5000`.
+- The default port is 5000. You can change and edit the port in `apps/asmaul-husna-api/src/main.ts` file.
