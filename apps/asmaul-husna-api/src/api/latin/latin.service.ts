@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
+import { filter, from } from "rxjs";
 import slugify from "slugify";
 
-import { GetDataBasedOnLatinProps } from "../../interfaces";
 import { ApiService } from "../api.service";
 
 @Injectable()
@@ -11,22 +11,30 @@ export class LatinService {
   getDataBasedOnLatin(
     // latin must be string
     latin: string,
-  ): GetDataBasedOnLatinProps {
-    const filteredData = this.apiService.getAllAsmaulHusna().data.filter(
-      (item) =>
-        /**
-         * - latin can be lowercase or uppercase
-         * - In the end, it'll be transformed to lowercase format
-         */
-        slugify(item.latin, { lower: true }) ===
-        slugify(latin, { lower: true }),
-    )[0];
+  ) {
+    const observable = from(this.apiService.getAllAsmaulHusna().data);
+
+    const filteredData = observable.pipe(
+      filter(
+        (item) =>
+          /**
+           * - latin can be lowercase or uppercase
+           * - In the end, it'll be transformed to lowercase format
+           */
+          slugify(item.latin, { lower: true }) ===
+          slugify(latin, { lower: true }),
+      ),
+    );
 
     if (!filteredData) throw new NotFoundException();
-    return {
+
+    const obj = {
       statusCode: 200,
       total: 1,
-      data: filteredData,
     };
+
+    filteredData.subscribe((item) => Object.assign(obj, { data: item }));
+
+    return obj;
   }
 }
