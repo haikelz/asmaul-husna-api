@@ -109,7 +109,6 @@ Response:
 
 - Nest JS
 - Typescript
-- RxJS
 - Nestia for runtime validator
 
 ## Getting Started

@@ -29,7 +29,6 @@
     "@nestjs/platform-fastify": "^10.1.3",
     "cache-manager": "^5.2.3",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1",
     "slugify": "^1.6.6",
     "typia": "^4.2.2"
   },
