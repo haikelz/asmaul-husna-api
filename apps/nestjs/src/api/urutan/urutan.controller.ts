@@ -1,5 +1,4 @@
-import { TypedParam, TypedRoute } from "@nestia/core";
-import { Controller } from "@nestjs/common";
+import { Controller, Get, Param } from "@nestjs/common";
 
 import { UrutanService } from "./urutan.service";
 
@@ -8,10 +7,10 @@ export class UrutanController {
   constructor(private readonly urutanService: UrutanService) {}
 
   // get data based on urutan
-  @TypedRoute.Get()
+  @Get()
   getDataBasedOnUrutan(
     // urutan must be number
-    @TypedParam("urutan") urutan: number,
+    @Param("urutan") urutan: string,
   ) {
     return this.urutanService.getDataBasedOnUrutan(urutan);
   }

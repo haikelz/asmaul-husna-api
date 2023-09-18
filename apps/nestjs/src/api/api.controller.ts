@@ -1,5 +1,4 @@
-import { TypedRoute } from "@nestia/core";
-import { Controller } from "@nestjs/common";
+import { Controller, Get } from "@nestjs/common";
 
 import { GetAllAsmaulHusnaProps } from "../interfaces";
 import { ApiService } from "./api.service";
@@ -8,7 +7,7 @@ import { ApiService } from "./api.service";
 export class ApiController {
   constructor(private readonly apiService: ApiService) {}
 
-  @TypedRoute.Get()
+  @Get()
   getAllAsmaulHusna(): GetAllAsmaulHusnaProps {
     return this.apiService.getAllAsmaulHusna();
   }

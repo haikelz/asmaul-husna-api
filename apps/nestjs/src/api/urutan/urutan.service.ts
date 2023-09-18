@@ -9,12 +9,12 @@ export class UrutanService {
 
   getDataBasedOnUrutan(
     // urutan must be number
-    urutan: number,
+    urutan: string,
   ): GetDataBasedOnUrutanProps {
     const filteredData = this.apiService.getAllAsmaulHusna().data.filter(
       (item) =>
         // Compare urutan with item.urutan
-        item.urutan === urutan,
+        item.urutan === Number(urutan),
     )[0];
 
     if (!filteredData) throw new NotFoundException();

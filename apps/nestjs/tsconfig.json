@@ -2,16 +2,21 @@
   "extends": "tsconfig/nestjs.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "baseUrl": "./src",
-    "plugins": [
-      {
-        "transform": "@nestia/core/lib/transform",
-        "validate": "assert",
-        "stringify": "assert"
-      },
-      {
-        "transform": "typia/lib/transform"
-      }
-    ]
+    "baseUrl": ".",
+    "paths": {
+      "@common/*": [
+        "src/common/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ]
+    },
+    "strictNullChecks": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }

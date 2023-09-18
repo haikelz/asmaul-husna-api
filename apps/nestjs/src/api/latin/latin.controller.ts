@@ -1,5 +1,4 @@
-import { TypedParam, TypedRoute } from "@nestia/core";
-import { Controller } from "@nestjs/common";
+import { Controller, Get, Param } from "@nestjs/common";
 
 import { GetDataBasedOnLatinProps } from "../../interfaces";
 import { LatinService } from "./latin.service";
@@ -9,10 +8,10 @@ export class LatinController {
   constructor(private readonly latinService: LatinService) {}
 
   // get data based on latin
-  @TypedRoute.Get()
+  @Get()
   getDataBasedOnLatin(
     // latin must be string
-    @TypedParam("latin") latin: string,
+    @Param("latin") latin: string,
   ): GetDataBasedOnLatinProps {
     return this.latinService.getDataBasedOnLatin(latin);
   }
