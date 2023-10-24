@@ -7,12 +7,12 @@
     "lint": "turbo run lint"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.10.12",
+    "@turbo/gen": "^1.10.16",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.47.0",
+    "eslint": "^8.52.0",
     "tsconfig": "workspace:*",
-    "turbo": "^1.10.12"
+    "turbo": "^1.10.16"
   },
   "config": {
     "commitizen": {
