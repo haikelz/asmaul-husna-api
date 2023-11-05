@@ -27,7 +27,7 @@ importers:
         specifier: ^1.10.16
         version: 1.10.16
 
-  apps/nestjs-graphql:
+  apps/nestjs:
     dependencies:
       '@apollo/server':
         specifier: ^4.9.5
@@ -71,127 +71,6 @@ importers:
       graphql:
         specifier: ^16.8.1
         version: 16.8.1
-      reflect-metadata:
-        specifier: ^0.1.13
-        version: 0.1.13
-      slugify:
-        specifier: ^1.6.6
-        version: 1.6.6
-    devDependencies:
-      '@nestjs/cli':
-        specifier: ^10.2.1
-        version: 10.2.1(@swc/cli@0.1.62)(@swc/core@1.3.95)
-      '@nestjs/schematics':
-        specifier: ^10.0.3
-        version: 10.0.3(chokidar@3.5.3)(typescript@5.2.2)
-      '@nestjs/testing':
-        specifier: ^10.2.8
-        version: 10.2.8(@nestjs/common@10.2.8)(@nestjs/core@10.2.8)
-      '@swc/cli':
-        specifier: ^0.1.62
-        version: 0.1.62(@swc/core@1.3.95)
-      '@swc/core':
-        specifier: ^1.3.95
-        version: 1.3.95
-      '@swc/jest':
-        specifier: ^0.2.29
-        version: 0.2.29(@swc/core@1.3.95)
-      '@trivago/prettier-plugin-sort-imports':
-        specifier: ^4.2.1
-        version: 4.2.1(prettier@3.0.3)
-      '@types/jest':
-        specifier: ^29.5.7
-        version: 29.5.7
-      '@types/node':
-        specifier: ^20.8.10
-        version: 20.8.10
-      '@types/supertest':
-        specifier: ^2.0.15
-        version: 2.0.15
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^6.9.1
-        version: 6.9.1(@typescript-eslint/parser@6.9.1)(eslint@8.53.0)(typescript@5.2.2)
-      '@typescript-eslint/parser':
-        specifier: ^6.9.1
-        version: 6.9.1(eslint@8.53.0)(typescript@5.2.2)
-      commitizen:
-        specifier: ^4.3.0
-        version: 4.3.0(typescript@5.2.2)
-      cz-conventional-changelog:
-        specifier: ^3.3.0
-        version: 3.3.0(typescript@5.2.2)
-      eslint:
-        specifier: ^8.53.0
-        version: 8.53.0
-      eslint-config-prettier:
-        specifier: ^9.0.0
-        version: 9.0.0(eslint@8.53.0)
-      eslint-plugin-prettier:
-        specifier: ^5.0.1
-        version: 5.0.1(eslint-config-prettier@9.0.0)(eslint@8.53.0)(prettier@3.0.3)
-      husky:
-        specifier: ^8.0.3
-        version: 8.0.3
-      jest:
-        specifier: ^29.7.0
-        version: 29.7.0(@types/node@20.8.10)(ts-node@10.9.1)
-      lint-staged:
-        specifier: ^15.0.2
-        version: 15.0.2
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
-      source-map-support:
-        specifier: ^0.5.21
-        version: 0.5.21
-      supertest:
-        specifier: ^6.3.3
-        version: 6.3.3
-      ts-loader:
-        specifier: ^9.5.0
-        version: 9.5.0(typescript@5.2.2)(webpack@5.89.0)
-      ts-node:
-        specifier: ^10.9.1
-        version: 10.9.1(@swc/core@1.3.95)(@types/node@20.8.10)(typescript@5.2.2)
-      tsconfig:
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
-      tsconfig-paths:
-        specifier: ^4.2.0
-        version: 4.2.0
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
-
-  apps/nestjs-rest:
-    dependencies:
-      '@fastify/compress':
-        specifier: ^6.5.0
-        version: 6.5.0
-      '@fastify/static':
-        specifier: ^6.12.0
-        version: 6.12.0
-      '@nestjs/cache-manager':
-        specifier: ^2.1.1
-        version: 2.1.1(@nestjs/common@10.2.8)(@nestjs/core@10.2.8)(cache-manager@5.2.4)(reflect-metadata@0.1.13)(rxjs@7.8.1)
-      '@nestjs/common':
-        specifier: ^10.2.8
-        version: 10.2.8(reflect-metadata@0.1.13)(rxjs@7.8.1)
-      '@nestjs/core':
-        specifier: ^10.2.8
-        version: 10.2.8(@nestjs/common@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1)
-      '@nestjs/platform-fastify':
-        specifier: ^10.2.8
-        version: 10.2.8(@fastify/static@6.12.0)(@nestjs/common@10.2.8)(@nestjs/core@10.2.8)
-      '@nestjs/swagger':
-        specifier: ^7.1.14
-        version: 7.1.14(@fastify/static@6.12.0)(@nestjs/common@10.2.8)(@nestjs/core@10.2.8)(reflect-metadata@0.1.13)
-      cache-manager:
-        specifier: ^5.2.4
-        version: 5.2.4
-      fastify-swagger:
-        specifier: ^5.2.0
-        version: 5.2.0
       reflect-metadata:
         specifier: ^0.1.13
         version: 0.1.13
@@ -596,7 +475,7 @@ packages:
     resolution: {integrity: sha512-oLcVCTeIFadUoArDTwpluncplrYBmTCCZZgXCbgNGvOBBiSDDK3eWO4b/+eOTli5tKv1lg+a5/NAXg+nTcei1w==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.17.0
+      '@babel/types': 7.23.0
       jsesc: 2.5.2
       source-map: 0.5.7
     dev: true
@@ -723,7 +602,7 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
-      '@babel/types': 7.17.0
+      '@babel/types': 7.23.0
     dev: true
 
   /@babel/plugin-syntax-async-generators@7.8.4(@babel/core@7.23.2):
@@ -1034,7 +913,7 @@ packages:
     dependencies:
       ajv: 8.12.0
       ajv-formats: 2.1.1(ajv@8.12.0)
-      fast-uri: 2.2.0
+      fast-uri: 2.3.0
     dev: false
 
   /@fastify/compress@6.5.0:
@@ -1061,10 +940,6 @@ packages:
     resolution: {integrity: sha512-J8TOSBq3SoZbDhM9+R/u77hP93gz/rajSA+K2kGyijPpORPWUXHUpTaleoj+92As0S9uPRP7Oi8IqMf0u+ro6A==}
     dev: false
 
-  /@fastify/error@3.4.0:
-    resolution: {integrity: sha512-e/mafFwbK3MNqxUcFBLgHhgxsF8UT1m8aj0dAlqEa2nJEgPsRtpHTZ3ObgrgkZ2M1eJHPTwgyUl/tXkvabsZdQ==}
-    dev: false
-
   /@fastify/error@3.4.1:
     resolution: {integrity: sha512-wWSvph+29GR783IhmvdwWnN4bUxTD01Vm5Xad4i7i1VuAOItLvbPAb69sb0IQ2N57yprvhNIwAP5B6xfKTmjmQ==}
     dev: false
@@ -1072,7 +947,7 @@ packages:
   /@fastify/fast-json-stringify-compiler@4.3.0:
     resolution: {integrity: sha512-aZAXGYo6m22Fk1zZzEUKBvut/CIIQe/BapEORnxiD5Qr0kPHqqI69NtEMCme74h+at72sPhbkb4ZrLd1W3KRLA==}
     dependencies:
-      fast-json-stringify: 5.8.0
+      fast-json-stringify: 5.9.1
     dev: false
 
   /@fastify/formbody@7.4.0:
@@ -1085,7 +960,7 @@ packages:
   /@fastify/middie@8.3.0:
     resolution: {integrity: sha512-h+zBxCzMlkEkh4fM7pZaSGzqS7P9M0Z6rXnWPdUEPfe7x1BCj++wEk/pQ5jpyYY4pF8AknFqb77n7uwh8HdxEA==}
     dependencies:
-      '@fastify/error': 3.4.0
+      '@fastify/error': 3.4.1
       fastify-plugin: 4.5.1
       path-to-regexp: 6.2.1
       reusify: 1.0.4
@@ -4329,17 +4204,6 @@ packages:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
     dev: true
 
-  /fast-json-stringify@5.8.0:
-    resolution: {integrity: sha512-VVwK8CFMSALIvt14U8AvrSzQAwN/0vaVRiFFUVlpnXSnDGrSkOAO5MtzyN8oQNjLd5AqTW5OZRgyjoNuAuR3jQ==}
-    dependencies:
-      '@fastify/deepmerge': 1.3.0
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      fast-deep-equal: 3.1.3
-      fast-uri: 2.2.0
-      rfdc: 1.3.0
-    dev: false
-
   /fast-json-stringify@5.9.1:
     resolution: {integrity: sha512-NMrf+uU9UJnTzfxaumMDXK1NWqtPCfGoM9DYIE+ESlaTQqjlANFBy0VAbsm6FB88Mx0nceyi18zTo5kIEUlzxg==}
     dependencies:
@@ -4369,10 +4233,6 @@ packages:
 
   /fast-safe-stringify@2.1.1:
     resolution: {integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==}
-
-  /fast-uri@2.2.0:
-    resolution: {integrity: sha512-cIusKBIt/R/oI6z/1nyfe2FvGKVTohVRfvkOhvx0nCEW+xf5NoCXjAHcWp93uOUBchzYcsvPlrapAdX1uW+YGg==}
-    dev: false
 
   /fast-uri@2.3.0:
     resolution: {integrity: sha512-eel5UKGn369gGEWOqBShmFJWfq/xSJvsgDzgLYC845GneayWvXBf0lJCBn5qTABfewy1ZDPoaR5OZCP+kssfuw==}

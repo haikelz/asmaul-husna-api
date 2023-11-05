@@ -5,11 +5,14 @@
 
 ## Endpoints
 
-| Endpoint            | Method | Description                                |
-| ------------------- | ------ | ------------------------------------------ |
-| `/api/all`          | GET    | Get all Asma'ul Husna                      |
-| `/api/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
-| `/api/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
+| Endpoint                    | Method | Description                                         |
+| --------------------------- | ------ | --------------------------------------------------- |
+| `/api/all`                  | GET    | Get all Asma'ul Husna                               |
+| `/api/:urutan`              | GET    | Get spesific Asma'ul Husna based on urutan          |
+| `/api/latin/:latin`         | GET    | Get spesific Asma'ul Husna based on latin           |
+| `/api/graphql/all`          | POST   | GraphQL: get all Asma'ul Husna                      |
+| `/api/graphql/:urutan`      | POST   | GraphQL: get spesific Asma'ul Husna based on urutan |
+| `/api/graphql/latin/:latin` | POST   | GraphQL: get spesific Asma'ul Husna based on latin  |
 
 ## Response Example
 
@@ -145,7 +148,7 @@ Response:
 
 - First, clone this repo.
 - Install all needed depedencies with `pnpm install`.
-- There are three version of this API: `golang`, `nestjs-rest`, and `nestjs-graphql`.
+- There are two version of this API: `golang`, and `nestjs`
 - Make sure you've already installed Turbo globally. If not, then install it with `npm install -g turbo`.
 - Decide one of the version that you want to test, and type `turbo run dev --filter <api-version>`, or `go run main.go` for golang version.
 - For Nest JS version, if you want to see the Swagger Documentation of this API, change the endpoint to `/swagger`.
