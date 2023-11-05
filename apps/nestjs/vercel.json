@@ -18,7 +18,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "src/api/graphql",
+      "dest": "src/routes/api/graphql",
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
   ]
