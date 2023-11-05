@@ -11,11 +11,6 @@
       "src": "/(.*)",
       "dest": "src/main.ts",
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
-    },
-    {
-      "src": "/(.*)",
-      "dest": "src/routes/api/graphql",
-      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
   ]
 }

@@ -14,7 +14,7 @@ import { UrutanModule } from "./urutan/urutan.module";
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       playground: true,
-      autoSchemaFile: "src/schema.gql",
+      autoSchemaFile: true,
       installSubscriptionHandlers: true,
     }),
     AllModule,
