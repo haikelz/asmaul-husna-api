@@ -17,10 +17,22 @@
 
 Request:
 
+- Rest
+
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/all")
   .then((res) => res.json())
   .then((result) => console.log(result));
+```
+
+- GraphQL
+
+```graphql
+query GetAllAsmaulHusna {
+  statusCode
+  total
+  data
+}
 ```
 
 Response:
@@ -57,10 +69,22 @@ Response:
 
 Request:
 
+- Rest
+
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/1")
   .then((res) => res.json())
   .then((result) => console.log(result));
+```
+
+- GraphQL
+
+```graphql
+query GetDataBasedOnUrutan {
+  statusCode
+  total
+  data
+}
 ```
 
 Response:
@@ -84,10 +108,22 @@ Note: the latin can be lowercase or uppercase.
 
 Request:
 
+- Rest
+
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/latin/ar-rahman")
   .then((res) => res.json())
   .then((result) => console.log(result));
+```
+
+- GraphQL
+
+```graphql
+query GetDataBasedOnLatin {
+  statusCode
+  total
+  data
+}
 ```
 
 Response:
@@ -105,17 +141,11 @@ Response:
 }
 ```
 
-## Tech Stack
-
-- Nest JS
-- Typescript
-- Fastify
-- SWC
-
 ## Getting Started
 
 - First, clone this repo.
 - Install all needed depedencies with `pnpm install`.
-- After that, you can start the project with `pnpm run dev` and see the result in `localhost:5000`.
-- The default port is 5000. You can change and edit the port in `apps/asmaul-husna-api/src/main.ts` file.
-- For Nest JS version, if you want to see the Swagger Documentation of this API, change url path to `/swagger`.
+- There are three version of this API: `golang`, `nestjs-rest`, and `nestjs-graphql`.
+- Make sure you've already installed Turbo globally. If not, then install it with `npm install -g turbo`.
+- Decide one of the version that you want to test, and type `turbo run dev --filter <api-version>`, or `go run main.go` for golang version.
+- For Nest JS version, if you want to see the Swagger Documentation of this API, change the endpoint to `/swagger`.
