@@ -10,9 +10,9 @@ export class GraphqlService {
         author: "Haikel Ilham Hakim",
         repository: "https://github.com/haikelz/asmaul-husna-api",
         endpoints: {
-          "/api/all": "Get all Asma'ul Husna",
-          "/api/:urutan": "Get spesific Asma'ul Husna based on urutan",
-          "/api/latin/:latin": "Get spesific Asma'ul Husna based on latin",
+          "/api/graphql/all": "Get all Asma'ul Husna",
+          "/api/graphql/:urutan": "Get spesific Asma'ul Husna based on urutan",
+          "/api/graphql/latin/:latin": "Get spesific Asma'ul Husna based on latin",
         },
       },
     };

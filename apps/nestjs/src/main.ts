@@ -16,7 +16,6 @@ async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
       AppModule,
       new FastifyAdapter(),
-      { cors: true },
     );
 
     const swaggerConfig = new DocumentBuilder()
@@ -33,6 +32,7 @@ async function bootstrap() {
     const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
     SwaggerModule.setup("swagger", app, swaggerDocument);
 
+    app.enableCors({ origin: "*" });
     await app.register(compression, { encodings: ["gzip", "deflate"] });
     await app.listen(5000, "0.0.0.0");
 

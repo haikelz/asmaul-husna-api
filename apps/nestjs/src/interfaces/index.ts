@@ -36,7 +36,13 @@ export interface GetDataBasedOnUrutanProps extends BaseGetDataProps {
 
 // interfaces for graphql
 export interface GraphqlGetHomeProps {
-  data: GetHomeDataProps;
+  data: Omit<GetHomeDataProps, "endpoints"> & {
+    endpoints: {
+      "/api/graphql/all": string;
+      "/api/graphql/:urutan": string;
+      "/api/graphql/latin/:latin": string;
+    };
+  };
 }
 
 export interface GraphqlGetAllProps {
