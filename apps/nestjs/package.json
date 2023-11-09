@@ -35,8 +35,10 @@
     "cache-manager": "^5.2.4",
     "fastify-swagger": "^5.2.0",
     "graphql": "^16.8.1",
+    "nestjs-zod": "^3.0.0",
     "reflect-metadata": "^0.1.13",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.6",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.2.1",
