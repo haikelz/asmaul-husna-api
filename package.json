@@ -10,7 +10,7 @@
     "@turbo/gen": "^1.10.16",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.53.0",
+    "eslint": "^8.55.0",
     "tsconfig": "workspace:*",
     "turbo": "^1.10.16"
   },
