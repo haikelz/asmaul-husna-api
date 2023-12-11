@@ -1,4 +1,5 @@
-import { Controller, Param, Post } from "@nestjs/common";
+import { TypedRoute } from "@nestia/core";
+import { Controller, Param } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 
 import { UrutanService } from "../../../domain/services/graphql/urutan.service";
@@ -10,7 +11,7 @@ export class UrutanController {
   constructor(private readonly urutanService: UrutanService) {}
 
   // get data based on urutan
-  @Post()
+  @TypedRoute.Post()
   getDataBasedOnUrutan(
     // urutan must be number
     @Param("urutan") urutan: string,

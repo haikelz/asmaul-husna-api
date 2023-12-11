@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
 
 import { GraphqlGetAllDto } from "../../../app/dto/graphql/graphql-get-all.dto";
-import { asmaulHusna } from "../../../data";
+import { asmaulHusna } from "../../../lib/data";
 
 @Injectable()
 export class AllService {

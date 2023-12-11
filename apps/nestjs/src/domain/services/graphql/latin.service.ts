@@ -2,7 +2,7 @@ import { HttpStatus, Injectable, NotFoundException } from "@nestjs/common";
 import slugify from "slugify";
 
 import { GraphqlGetLatinDto } from "../../../app/dto/graphql/graphql-get-latin.dto";
-import { asmaulHusna } from "../../../data";
+import { asmaulHusna } from "../../../lib/data";
 
 @Injectable()
 export class LatinService {

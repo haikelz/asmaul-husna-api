@@ -1,3 +1,4 @@
+import { TypedRoute } from "@nestia/core";
 import { Controller, Post } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 
@@ -9,7 +10,7 @@ import { GraphqlGetAllDto } from "../../dto/graphql/graphql-get-all.dto";
 export class AllController {
   constructor(private readonly allService: AllService) {}
 
-  @Post()
+  @TypedRoute.Post()
   getAllAsmaulHusna(): GraphqlGetAllDto {
     return this.allService.getAllAsmaulHusna();
   }

@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
 
 import { GetAllAsmaulHusnaDto } from "../../app/dto/get-all-asmaul-husna.dto";
-import { asmaulHusna } from "../../data";
+import { asmaulHusna } from "../../lib/data";
 
 @Injectable()
 export class AllService {

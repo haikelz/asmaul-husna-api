@@ -36,7 +36,7 @@ async function bootstrap() {
     await app.register(compression, { encodings: ["gzip", "deflate"] });
     await app.listen(5000, "0.0.0.0");
 
-    console.log("Success!");
+    console.log("Success running in port 5000!");
   } catch (err) {
     console.error(err);
   }

@@ -1,4 +1,5 @@
-import { Controller, Post } from "@nestjs/common";
+import { TypedRoute } from "@nestia/core";
+import { Controller } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 
 import { GraphqlService } from "../../../domain/services/graphql/graphql.service";
@@ -9,7 +10,7 @@ import { GraphqlGetHomeDto } from "../../dto/graphql/graphql-get-home.dto";
 export class GraphqlController {
   constructor(private readonly graphqlService: GraphqlService) {}
 
-  @Post()
+  @TypedRoute.Post()
   getHomeData(): GraphqlGetHomeDto {
     return this.graphqlService.getHomeData();
   }

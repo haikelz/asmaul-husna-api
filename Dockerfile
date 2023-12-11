@@ -8,7 +8,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 
 COPY package.json pnpm-lock.yaml ./
 COPY apps/nestjs/package.json ./apps/nestjs/package.json
-COPY packages/tsconfig/package.json ./packages/tsconfig/package.json
+COPY packages/typescript-config/package.json ./packages/typescript-config/package.json
 
 RUN pnpm install
 

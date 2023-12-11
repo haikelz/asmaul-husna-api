@@ -1,4 +1,5 @@
-import { Controller, Param, Post } from "@nestjs/common";
+import { TypedRoute } from "@nestia/core";
+import { Controller, Param } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 
 import { LatinService } from "../../../domain/services/graphql/latin.service";
@@ -10,7 +11,7 @@ export class LatinController {
   constructor(private readonly latinService: LatinService) {}
 
   // get data based on latin
-  @Post()
+  @TypedRoute.Post()
   getDataBasedOnLatin(
     @Param("latin") latin: string, // latin must be string
   ): GraphqlGetLatinDto {
