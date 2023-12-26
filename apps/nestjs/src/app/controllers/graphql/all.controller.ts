@@ -1,5 +1,5 @@
 import { TypedRoute } from "@nestia/core";
-import { Controller, Post } from "@nestjs/common";
+import { Controller } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 
 import { AllService } from "../../../domain/services/graphql/all.service";

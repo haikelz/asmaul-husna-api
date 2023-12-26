@@ -1,3 +1,5 @@
+<img src="https://github.com/Safouene1/support-palestine-banner/blob/master/banner-support.svg" width="100%" />
+
 <div align="center">
   <h1>asmaul-husna-api</h1>
   <p>asmaul-husna-api is an API to get the list of Asma'ul Husna</p>
@@ -15,6 +17,8 @@
 | `/api/graphql/latin/:latin` | POST   | GraphQL: get spesific Asma'ul Husna based on latin  |
 
 ## Response Example
+
+**Note:** If you choose to use GraphQL instead of REST version, please use POST Method to get the data.
 
 **Get all Asma'ul Husna**
 
