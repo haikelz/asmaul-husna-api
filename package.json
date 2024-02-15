@@ -8,11 +8,11 @@
   },
   "devDependencies": {
     "@asmaul-husna-api/typescript-config": "workspace:*",
-    "@turbo/gen": "^1.11.1",
+    "@turbo/gen": "^1.12.4",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.55.0",
-    "turbo": "^1.11.1"
+    "eslint": "^8.56.0",
+    "turbo": "^1.12.4"
   },
   "config": {
     "commitizen": {

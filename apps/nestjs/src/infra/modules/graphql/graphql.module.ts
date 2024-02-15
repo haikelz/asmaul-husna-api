@@ -1,4 +1,4 @@
-import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
+import { ApolloDriver } from "@nestjs/apollo";
 import { Module } from "@nestjs/common";
 import { GraphQLModule } from "@nestjs/graphql";
 
@@ -11,7 +11,7 @@ import { UrutanModule } from "./urutan.module";
 
 @Module({
   imports: [
-    GraphQLModule.forRoot<ApolloDriverConfig>({
+    GraphQLModule.forRoot({
       driver: ApolloDriver,
       playground: true,
       autoSchemaFile: true,

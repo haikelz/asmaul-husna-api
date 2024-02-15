@@ -1,4 +1,3 @@
-import compression from "@fastify/compress";
 import { NestFactory } from "@nestjs/core";
 import {
   FastifyAdapter,
@@ -18,6 +17,8 @@ async function bootstrap() {
       new FastifyAdapter(),
     );
 
+    app.enableCors({ origin: "*" });
+
     const swaggerConfig = new DocumentBuilder()
       .setTitle("asmaul-husna-api")
       .setDescription(
@@ -32,11 +33,7 @@ async function bootstrap() {
     const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
     SwaggerModule.setup("swagger", app, swaggerDocument);
 
-    app.enableCors({ origin: "*" });
-    await app.register(compression, { encodings: ["gzip", "deflate"] });
     await app.listen(5000, "0.0.0.0");
-
-    console.log("Success running in port 5000!");
   } catch (err) {
     console.error(err);
   }
