@@ -23,22 +23,10 @@
     "allowSyntheticDefaultImports": true,
     "target": "ESNext",
     "sourceMap": true,
-    "baseUrl": "./src",
     "incremental": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {
-      "@common/*": [
-        "src/common/*"
-      ],
-      "@config/*": [
-        "src/config/*"
-      ],
-      "@modules/*": [
-        "src/modules/*"
-      ]
-    },
     "strictNullChecks": true,
     "strictPropertyInitialization": false,
     "strict": true,

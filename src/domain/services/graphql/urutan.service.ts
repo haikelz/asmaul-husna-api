@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable, NotFoundException } from "@nestjs/common";
-import { asmaulHusna } from "lib/data";
 
 import { GraphqlGetUrutanDto } from "../../../app/dto/graphql/graphql-get-urutan.dto";
+import { asmaulHusna } from "../../../lib/data";
 
 @Injectable()
 export class UrutanService {

@@ -1,5 +1,5 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
-import { asmaulHusna } from "lib/data";
+import { asmaulHusna } from "../../lib/data";
 
 import { GetAllAsmaulHusnaDto } from "../../app/dto/get-all-asmaul-husna.dto";
 
