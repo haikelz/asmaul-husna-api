@@ -1,9 +1,0 @@
-{
-  "root": true,
-  "extends": [
-    "@asmaul-husna-api/eslint-config/index.js"
-  ],
-  "parserOptions": {
-    "project": true
-  }
-}
