@@ -5,13 +5,19 @@ import { asmaulHusna } from "../../../lib/data";
 
 @Injectable()
 export class AllService {
-  getAllAsmaulHusna(limit?: string): GraphqlGetAllDto {
-    const limitData = asmaulHusna.slice(0, Math.round(Number(limit)));
+  getAllAsmaulHusna(limit?: string, page?: string): GraphqlGetAllDto {
+    const fixedLimit = Math.round(Number(limit));
+    const fixedPage = Math.round(Number(page));
+
+    const results = asmaulHusna.slice(
+      page ? fixedLimit * (fixedPage - 1) : 0,
+      page ? fixedLimit * fixedPage : fixedLimit,
+    );
 
     return {
       statusCode: HttpStatus.OK,
-      total: limit ? limitData.length : asmaulHusna.length,
-      data: limit ? limitData : asmaulHusna,
+      total: limit ? results.length : asmaulHusna.length,
+      data: limit ? results : asmaulHusna,
     };
   }
 }

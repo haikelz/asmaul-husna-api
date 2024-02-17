@@ -1,17 +1,23 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
-import { asmaulHusna } from "../../lib/data";
 
 import { GetAllAsmaulHusnaDto } from "../../app/dto/get-all-asmaul-husna.dto";
+import { asmaulHusna } from "../../lib/data";
 
 @Injectable()
 export class AllService {
-  getAllAsmaulHusna(limit?: string): GetAllAsmaulHusnaDto {
-    const limitData = asmaulHusna.slice(0, Math.round(Number(limit)));
+  getAllAsmaulHusna(limit?: string, page?: string): GetAllAsmaulHusnaDto {
+    const fixedLimit = Math.round(Number(limit));
+    const fixedPage = Math.round(Number(page));
+
+    const results = asmaulHusna.slice(
+      page ? fixedLimit * (fixedPage - 1) : 0,
+      page ? fixedLimit * fixedPage : fixedLimit,
+    );
 
     return {
       statusCode: HttpStatus.OK,
-      total: limit ? limitData.length : asmaulHusna.length,
-      data: limit ? limitData : asmaulHusna,
+      total: limit ? results.length : asmaulHusna.length,
+      data: limit ? results : asmaulHusna,
     };
   }
 }

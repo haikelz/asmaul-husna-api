@@ -5,10 +5,7 @@ import { asmaulHusna } from "../../../lib/data";
 
 @Injectable()
 export class UrutanService {
-  getDataBasedOnUrutan(
-    // urutan must be number
-    urutan: string,
-  ): GraphqlGetUrutanDto {
+  getDataBasedOnUrutan(urutan: string): GraphqlGetUrutanDto {
     const filteredData = asmaulHusna.filter(
       (item) =>
         // Compare urutan with item.urutan

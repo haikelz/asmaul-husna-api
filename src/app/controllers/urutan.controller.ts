@@ -8,7 +8,7 @@ import { GetDataBasedOnUrutanDto } from "../dto/get-data-based-on-urutan.dto";
 @ApiTags("api")
 @ApiParam({
   name: "urutan",
-  description: "GET data based on urutan",
+  description: "GET the data based on urutan",
   type: "string",
   required: true,
 })

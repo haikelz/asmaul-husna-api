@@ -8,7 +8,7 @@ import { GetDataBasedOnLatinDto } from "../dto/get-data-based-on-latin.dto";
 @ApiTags("api")
 @ApiParam({
   name: "latin",
-  description: "GET data based on latin",
+  description: "GET the data based on latin",
   type: "string",
   required: true,
 })

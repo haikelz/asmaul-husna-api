@@ -72,19 +72,21 @@ Response:
 }
 ```
 
-With limit(Rest or GraphQL)
+With `page` and `limit`(Rest or GraphQL)
 
 ```ts
 // REST
-fetch("https://asmaul-husna-api.vercel.app/api/all?limit=20")
+fetch("https://asmaul-husna-api.vercel.app/api/all?page=2&limit=20")
   .then((res) => res.json())
   .then((result) => console.log(result));
 
 // GraphQL
-fetch("https://asmaul-husna-api.vercel.app/api/graphql/all?limit=20")
+fetch("https://asmaul-husna-api.vercel.app/api/graphql/all?page=2&limit=20")
   .then((res) => res.json())
   .then((result) => console.log(result));
 ```
+
+**Note:** The `page` and `limit` query are optional. But if you want to use the `page` query, you must use the `limit` query as well.
 
 Response:
 
@@ -94,24 +96,23 @@ Response:
   "total": 20,
   "data": [
     {
-      "urutan": 1,
-      "latin": "Ar Rahman",
-      "arab": "الرحمن",
-      "arti": "Yang Maha Pengasih"
+      "urutan": 21,
+      "latin": "Al Baasith",
+      "arab": "الباسط",
+      "arti": "Yang Maha Melapangkan(makhluknya)"
     },
     {
-      "urutan": 2,
-      "latin": "Ar Rahiim",
-      "arab": "الرحيم",
-      "arti": "Yang Maha Penyayang"
+      "urutan": 22,
+      "latin": "Al Khaafidh",
+      "arab": "الخافض",
+      "arti": "Yang Maha Merendahkan(makhluknya)"
     },
     {
-      "urutan": 3,
-      "latin": "Al Malik",
-      "arab": "الملك",
-      "arti": "Yang Maha Merajai / Memerintah"
-    },
-    ....
+      "urutan": 23,
+      "latin": "Ar Raafi '",
+      "arab": "الرافع",
+      "arti": "Yang Maha Meninggikan(makhluknya)"
+    }
   ]
 }
 ```

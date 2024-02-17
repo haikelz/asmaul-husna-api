@@ -8,7 +8,7 @@ export class UrutanService {
   constructor(private readonly allService: AllService) {}
 
   getDataBasedOnUrutan(
-    // urutan must be number
+    // urutan must be string
     urutan: string,
   ): GetDataBasedOnUrutanDto {
     const filteredData = this.allService.getAllAsmaulHusna().data.filter(
