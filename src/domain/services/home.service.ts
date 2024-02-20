@@ -1,4 +1,4 @@
-import { HttpStatus, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 
 import { GetHomeDataDto } from "../../app/dto/get-home-data.dto";
 
@@ -13,7 +13,6 @@ export class HomeService {
         "/api/:urutan": "Get spesific Asma'ul Husna based on urutan",
         "/api/latin/:latin": "Get spesific Asma'ul Husna based on latin",
       },
-      statusCode: HttpStatus.OK,
     };
   }
 }
