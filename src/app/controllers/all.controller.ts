@@ -11,7 +11,8 @@ export class AllController {
   constructor(private readonly allService: AllService) {}
 
   @TypedRoute.Get()
-  getAllAsmaulHusna(
+  public getAllAsmaulHusna(
+    // limit and page is optional
     @TypedQuery() query: { limit?: string; page?: string },
   ): GetAllAsmaulHusnaDto {
     const { limit, page } = query;

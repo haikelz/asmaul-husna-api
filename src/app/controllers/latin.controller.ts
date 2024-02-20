@@ -18,7 +18,7 @@ export class LatinController {
 
   // get data based on latin
   @TypedRoute.Get()
-  getDataBasedOnLatin(
+  public getDataBasedOnLatin(
     // latin must be string
     @TypedParam("latin") latin: string,
   ): GetDataBasedOnLatinDto {

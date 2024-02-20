@@ -23,7 +23,6 @@ import { UrutanModule } from "./infra/modules/urutan.module";
     GraphqlModule,
     CacheModule.register({ isGlobal: true }),
   ],
-  controllers: [HomeController],
   providers: [
     HomeService,
     {

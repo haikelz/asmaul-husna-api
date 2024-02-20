@@ -29,7 +29,6 @@
   "dependencies": {
     "@apollo/server": "^4.10.0",
     "@as-integrations/fastify": "^2.1.1",
-    "@fastify/compress": "^7.0.0",
     "@nestia/core": "^2.5.8",
     "@nestia/e2e": "^0.4.1",
     "@nestjs/apollo": "^12.1.0",
@@ -43,7 +42,7 @@
     "nestjs-zod": "^3.0.0",
     "reflect-metadata": "^0.2.1",
     "slugify": "^1.6.6",
-    "typia": "^5.4.9",
+    "typia": "^5.4.10",
     "zod": "^3.22.4"
   },
   "devDependencies": {

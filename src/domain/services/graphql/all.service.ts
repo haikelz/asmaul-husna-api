@@ -1,18 +1,17 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
 
 import { GraphqlGetAllDto } from "../../../app/dto/graphql/graphql-get-all.dto";
-import { asmaulHusna } from "../../../lib/data";
+import { handlePagination } from "../../../lib/helpers";
+import { asmaulHusna } from "../../../lib/utils/data";
 
 @Injectable()
 export class AllService {
-  getAllAsmaulHusna(limit?: string, page?: string): GraphqlGetAllDto {
-    const fixedLimit = Math.round(Number(limit));
-    const fixedPage = Math.round(Number(page));
-
-    const results = asmaulHusna.slice(
-      page ? fixedLimit * (fixedPage - 1) : 0,
-      page ? fixedLimit * fixedPage : fixedLimit,
-    );
+  public getAllAsmaulHusna(limit?: string, page?: string): GraphqlGetAllDto {
+    const results = handlePagination({
+      data: asmaulHusna,
+      page: page,
+      limit: limit,
+    });
 
     return {
       statusCode: HttpStatus.OK,

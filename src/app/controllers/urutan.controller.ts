@@ -18,7 +18,7 @@ export class UrutanController {
 
   // get data based on urutan
   @TypedRoute.Get()
-  getDataBasedOnUrutan(
+  public getDataBasedOnUrutan(
     // urutan must be number
     @TypedParam("urutan") urutan: string,
   ): GetDataBasedOnUrutanDto {

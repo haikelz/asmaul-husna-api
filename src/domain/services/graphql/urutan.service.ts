@@ -1,11 +1,11 @@
 import { HttpStatus, Injectable, NotFoundException } from "@nestjs/common";
 
 import { GraphqlGetUrutanDto } from "../../../app/dto/graphql/graphql-get-urutan.dto";
-import { asmaulHusna } from "../../../lib/data";
+import { asmaulHusna } from "../../../lib/utils/data";
 
 @Injectable()
 export class UrutanService {
-  getDataBasedOnUrutan(urutan: string): GraphqlGetUrutanDto {
+  public getDataBasedOnUrutan(urutan: string): GraphqlGetUrutanDto {
     const filteredData = asmaulHusna.filter(
       (item) =>
         // Compare urutan with item.urutan

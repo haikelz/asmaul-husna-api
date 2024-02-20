@@ -15,7 +15,7 @@ export class HomeController {
   constructor(private readonly homeService: HomeService) {}
 
   @TypedRoute.Get()
-  getHomeData(): GetHomeDataDto {
+  public getHomeData(): GetHomeDataDto {
     return this.homeService.getHomeData();
   }
 }

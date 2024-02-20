@@ -8,7 +8,7 @@ import { AllService } from "./all.service";
 export class LatinService {
   constructor(private readonly allService: AllService) {}
 
-  getDataBasedOnLatin(
+  public getDataBasedOnLatin(
     // latin must be string
     latin: string,
   ): GetDataBasedOnLatinDto {

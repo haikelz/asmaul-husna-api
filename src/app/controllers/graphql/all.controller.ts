@@ -11,7 +11,7 @@ export class AllController {
   constructor(private readonly allService: AllService) {}
 
   @TypedRoute.Post()
-  getAllAsmaulHusna(
+  public getAllAsmaulHusna(
     @TypedQuery() query: { limit?: string; page?: string },
   ): GraphqlGetAllDto {
     const { limit, page } = query;

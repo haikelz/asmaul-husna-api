@@ -12,7 +12,7 @@ export class GraphqlController {
   constructor(private readonly graphqlService: GraphqlService) {}
 
   @TypedRoute.Post()
-  getHomeData(): GraphqlGetHomeDto {
+  public getHomeData(): GraphqlGetHomeDto {
     return this.graphqlService.getHomeData();
   }
 }

@@ -9,6 +9,7 @@ const getHomeDataSchema = z.object({
     "/api/:urutan": z.string(),
     "/api/latin/:latin": z.string(),
   }),
+  statusCode: z.number(),
 });
 
 export class GetHomeDataDto extends createZodDto(getHomeDataSchema) {}

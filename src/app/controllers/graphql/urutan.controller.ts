@@ -18,7 +18,7 @@ export class UrutanController {
 
   // get data based on urutan
   @TypedRoute.Post()
-  getDataBasedOnUrutan(
+  public getDataBasedOnUrutan(
     // urutan must be number
     @Param("urutan") urutan: string,
   ): GraphqlGetUrutanDto {

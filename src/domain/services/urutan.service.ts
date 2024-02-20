@@ -7,7 +7,7 @@ import { AllService } from "./all.service";
 export class UrutanService {
   constructor(private readonly allService: AllService) {}
 
-  getDataBasedOnUrutan(
+  public getDataBasedOnUrutan(
     // urutan must be string
     urutan: string,
   ): GetDataBasedOnUrutanDto {

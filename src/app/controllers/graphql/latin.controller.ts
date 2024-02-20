@@ -18,7 +18,7 @@ export class LatinController {
 
   // get data based on latin
   @TypedRoute.Post()
-  getDataBasedOnLatin(
+  public getDataBasedOnLatin(
     @Param("latin") latin: string, // latin must be string
   ): GraphqlGetLatinDto {
     return this.latinService.getDataBasedOnLatin(latin);
