@@ -6,6 +6,11 @@ import slugify from "slugify";
 import { handlePagination } from "./lib/helpers";
 import { asmaulHusna } from "./lib/utils/data";
 import { handle } from "hono/vercel";
+import { serve } from "@hono/node-server";
+
+export const config = {
+  runtime: "edge",
+};
 
 const app = new Hono();
 
@@ -114,10 +119,6 @@ app.onError((err, c) => {
   );
 });
 
-export const GET = handle(app);
-export const POST = GET;
-export const PUT = GET;
-export const PATCH = GET;
-export const DELETE = GET;
+serve({ fetch: app.fetch, port: 5000 });
 
-export default app;
+export default handle(app);
