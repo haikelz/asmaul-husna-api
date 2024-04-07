@@ -1,42 +1,123 @@
-import { NestFactory } from "@nestjs/core";
-import {
-  FastifyAdapter,
-  NestFastifyApplication,
-} from "@nestjs/platform-fastify";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { Hono } from "hono";
+import { compress } from "hono/compress";
+import { cors } from "hono/cors";
+import { logger } from "hono/logger";
+import slugify from "slugify";
+import { handlePagination } from "./lib/helpers";
+import { asmaulHusna } from "./lib/utils/data";
+import { handle } from "hono/vercel";
 
-import { AppModule } from "./app.module";
+const app = new Hono();
 
-async function bootstrap() {
-  /**
-   * @see https://docs.nestjs.com/techniques/performance
-   */
-  try {
-    const app = await NestFactory.create<NestFastifyApplication>(
-      AppModule,
-      new FastifyAdapter(),
+app.use(logger());
+app.use(compress());
+app.use(cors());
+
+app.get("/", (c) => {
+  const results = {
+    author: "Haikel Ilham Hakim",
+    repository: "https://github.com/haikelz/asmaul-husna-api",
+    endpoints: {
+      "/api/all": "Get all Asma'ul Husna. Available queries: limit and page",
+      "/api/:urutan": "Get spesific Asma'ul Husna based on urutan",
+      "/api/latin/:latin": "Get spesific Asma'ul Husna based on latin",
+    },
+  };
+
+  return c.json(results);
+});
+
+app.get("/api/all", (c) => {
+  const { page, limit } = c.req.query();
+
+  const results = handlePagination({
+    data: asmaulHusna,
+    page: page,
+    limit: limit,
+  });
+
+  return c.json(
+    {
+      statusCode: 200,
+      total: limit ? results.length : asmaulHusna.length,
+      data: limit ? results : asmaulHusna,
+    },
+    200
+  );
+});
+
+app.get("/api/latin/:latin", (c) => {
+  const latin = c.req.param();
+
+  const filteredData = asmaulHusna.filter(
+    (item) =>
+      /**
+       * - latin can be lowercase or uppercase
+       * - In the end, it'll be transformed to lowercase format
+       */
+      slugify(item.latin, { lower: true }) ===
+      slugify(latin.latin, { lower: true })
+  )[0];
+
+  if (!filteredData)
+    return c.json(
+      {
+        message: "Not Found",
+        statusCode: 404,
+      },
+      404
     );
 
-    app.enableCors({ origin: "*" });
+  return c.json({ statusCode: 200, total: 1, data: filteredData }, 200);
+});
 
-    const swaggerConfig = new DocumentBuilder()
-      .setTitle("asmaul-husna-api")
-      .setDescription(
-        "asmaul-husna-api is an API to get the list of Asma'ul Husna.",
-      )
-      .setLicense(
-        "MIT",
-        "https://github.com/haikelz/asmaul-husna-api/blob/master/LICENSE",
-      )
-      .build();
+app.get("/api/:urutan", (c) => {
+  const urutan = c.req.param();
 
-    const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
-    SwaggerModule.setup("swagger", app, swaggerDocument);
+  const filteredData = asmaulHusna.filter(
+    (item) => item.urutan === Number(urutan.urutan)
+  )[0];
 
-    await app.listen(5000, "0.0.0.0");
-  } catch (err) {
-    console.error(err);
-  }
-}
+  if (!filteredData)
+    return c.json(
+      {
+        message: "Not Found",
+        statusCode: 404,
+      },
+      404
+    );
 
-bootstrap();
+  return c.json(
+    {
+      statusCode: 200,
+      total: 1,
+      data: filteredData,
+    },
+    200
+  );
+});
+
+app.notFound((c) => {
+  return c.json(
+    {
+      message: "Not Found",
+      statusCode: 404,
+    },
+    404
+  );
+});
+
+app.onError((err, c) => {
+  return c.json(
+    { message: `Error! ${err.message} because ${err.cause}`, statusCode: 500 },
+    500
+  );
+});
+
+export const GET = handle(app);
+export const POST = GET;
+export const PUT = GET;
+export const PATCH = GET;
+export const DELETE = GET;
+
+export default app;

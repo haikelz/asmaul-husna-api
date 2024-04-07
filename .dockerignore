@@ -1,9 +1,0 @@
-.git
-.github
-README.md
-LICENSE
-.husky
-.vscode
-test
-node_modules
-dist

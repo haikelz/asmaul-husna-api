@@ -7,14 +7,11 @@
 
 ## Endpoints
 
-| Endpoint                    | Method | Description                                         |
-| --------------------------- | ------ | --------------------------------------------------- |
-| `/api/all`                  | GET    | Get all Asma'ul Husna                               |
-| `/api/:urutan`              | GET    | Get spesific Asma'ul Husna based on urutan          |
-| `/api/latin/:latin`         | GET    | Get spesific Asma'ul Husna based on latin           |
-| `/api/graphql/all`          | POST   | GraphQL: get all Asma'ul Husna                      |
-| `/api/graphql/:urutan`      | POST   | GraphQL: get spesific Asma'ul Husna based on urutan |
-| `/api/graphql/latin/:latin` | POST   | GraphQL: get spesific Asma'ul Husna based on latin  |
+| Endpoint            | Method | Description                                |
+| ------------------- | ------ | ------------------------------------------ |
+| `/api/all`          | GET    | Get all Asma'ul Husna                      |
+| `/api/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
+| `/api/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
 
 ## Response Example
 
@@ -30,16 +27,6 @@ Request:
 fetch("https://asmaul-husna-api.vercel.app/api/all")
   .then((res) => res.json())
   .then((result) => console.log(result));
-```
-
-- GraphQL
-
-```graphql
-query GetAllAsmaulHusna {
-  statusCode
-  total
-  data
-}
 ```
 
 Response:
@@ -72,16 +59,10 @@ Response:
 }
 ```
 
-With `page` and `limit`(Rest or GraphQL)
+With `page` and `limit`
 
 ```ts
-// REST
 fetch("https://asmaul-husna-api.vercel.app/api/all?page=2&limit=20")
-  .then((res) => res.json())
-  .then((result) => console.log(result));
-
-// GraphQL
-fetch("https://asmaul-husna-api.vercel.app/api/graphql/all?page=2&limit=20")
   .then((res) => res.json())
   .then((result) => console.log(result));
 ```
@@ -121,22 +102,10 @@ Response:
 
 Request:
 
-- Rest
-
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/1")
   .then((res) => res.json())
   .then((result) => console.log(result));
-```
-
-- GraphQL
-
-```graphql
-query GetDataBasedOnUrutan {
-  statusCode
-  total
-  data
-}
 ```
 
 Response:
@@ -160,22 +129,10 @@ Note: the latin can be lowercase or uppercase.
 
 Request:
 
-- Rest
-
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/latin/ar-rahman")
   .then((res) => res.json())
   .then((result) => console.log(result));
-```
-
-- GraphQL
-
-```graphql
-query GetDataBasedOnLatin {
-  statusCode
-  total
-  data
-}
 ```
 
 Response:
@@ -198,7 +155,6 @@ Response:
 - First, clone this repo.
 - Install all needed depedencies with `pnpm install`.
 - Type `pnpm run dev` and see the result in `http://localhost:5000`
-- If you want to see the Swagger Documentation of this API, change the endpoint to `/swagger`.
 
 ## Credits
 

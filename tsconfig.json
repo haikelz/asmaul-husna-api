@@ -1,65 +1,13 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Default",
-  "exclude": [
-    "node_modules"
-  ],
   "compilerOptions": {
-    "composite": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "inlineSources": false,
-    "isolatedModules": true,
-    "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
-    "skipLibCheck": true,
-    "declaration": false,
-    "declarationMap": false,
-    "outDir": "./dist",
-    "module": "CommonJS",
-    "removeComments": true,
-    "allowSyntheticDefaultImports": true,
     "target": "ESNext",
-    "sourceMap": true,
-    "incremental": true,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": false,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "strict": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "plugins": [
-      {
-        "transform": "@nestia/core/lib/transform",
-        /**
-         * Validate request body.
-         *
-         *   - "assert": Use typia.assert() function
-         *   - "is": Use typia.is() function
-         *   - "validate": Use typia.validate() function
-         *   - "assertEquals": Use typia.assertEquals() function
-         *   - "equals": Use typia.equals() function
-         *   - "validateEquals": Use typia.validateEquals() function
-         */
-        "validate": "assert",
-        /**
-         * Validate JSON typed response body.
-         *
-         *   - "assert": Use typia.assertStringify() function
-         *   - "is": Use typia.isStringify() function
-         *   - "validate": Use typia.validateStringify() function
-         *   - "stringify": Use typia.stringify() function, but dangerous
-         *   - null: Just use JSON.stringify() function, without boosting
-         */
-        "stringify": "assert"
-      },
-      {
-        "transform": "typia/lib/transform"
-      }
-    ]
+    "types": [
+      "node"
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
   }
 }

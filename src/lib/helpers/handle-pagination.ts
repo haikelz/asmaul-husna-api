@@ -1,10 +1,8 @@
-export function handlePagination<T>(
-  obj: {
-    data: T[];
-    page?: string;
-    limit?: string;
-  },
-) {
+export function handlePagination<T>(obj: {
+  data: T[];
+  page?: string;
+  limit?: string;
+}) {
   const { data, page, limit } = obj;
 
   // Just in case if limit and page is in decimal format
@@ -18,7 +16,7 @@ export function handlePagination<T>(
    */
   const results = data.slice(
     page ? fixedLimit * (fixedPage - 1) : 0,
-    page ? fixedLimit * fixedPage : fixedLimit,
+    page ? fixedLimit * fixedPage : fixedLimit
   );
 
   return results;
