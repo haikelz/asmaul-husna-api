@@ -1,16 +1,11 @@
+import { handle } from "@hono/node-server/vercel";
 import { Hono } from "hono";
 import { compress } from "hono/compress";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import slugify from "slugify";
-import { handlePagination } from "./lib/helpers";
+import { handlePagination, setHeader } from "./lib/helpers";
 import { asmaulHusna } from "./lib/utils/data";
-import { handle } from "hono/vercel";
-import { serve } from "@hono/node-server";
-
-export const config = {
-  runtime: "edge",
-};
 
 const app = new Hono();
 
@@ -18,22 +13,28 @@ app.use(logger());
 app.use(compress());
 app.use(cors());
 
-app.get("/", (c) => {
+app.get("/", (ctx) => {
   const results = {
     author: "Haikel Ilham Hakim",
     repository: "https://github.com/haikelz/asmaul-husna-api",
     endpoints: {
+      "/": "Get some information about the API",
       "/api/all": "Get all Asma'ul Husna. Available queries: limit and page",
       "/api/:urutan": "Get spesific Asma'ul Husna based on urutan",
       "/api/latin/:latin": "Get spesific Asma'ul Husna based on latin",
     },
   };
 
-  return c.json(results);
+  setHeader(ctx, {
+    contentType: "application/json",
+    accept: "application/json",
+  });
+
+  return ctx.json(results);
 });
 
-app.get("/api/all", (c) => {
-  const { page, limit } = c.req.query();
+app.get("/api/all", (ctx) => {
+  const { page, limit } = ctx.req.query();
 
   const results = handlePagination({
     data: asmaulHusna,
@@ -41,7 +42,12 @@ app.get("/api/all", (c) => {
     limit: limit,
   });
 
-  return c.json(
+  setHeader(ctx, {
+    contentType: "application/json",
+    accept: "application/json",
+  });
+
+  return ctx.json(
     {
       statusCode: 200,
       total: limit ? results.length : asmaulHusna.length,
@@ -51,8 +57,8 @@ app.get("/api/all", (c) => {
   );
 });
 
-app.get("/api/latin/:latin", (c) => {
-  const latin = c.req.param();
+app.get("/api/latin/:latin", (ctx) => {
+  const latin = ctx.req.param();
 
   const filteredData = asmaulHusna.filter(
     (item) =>
@@ -64,8 +70,13 @@ app.get("/api/latin/:latin", (c) => {
       slugify(latin.latin, { lower: true })
   )[0];
 
+  setHeader(ctx, {
+    contentType: "application/json",
+    accept: "application/json",
+  });
+
   if (!filteredData)
-    return c.json(
+    return ctx.json(
       {
         message: "Not Found",
         statusCode: 404,
@@ -73,18 +84,23 @@ app.get("/api/latin/:latin", (c) => {
       404
     );
 
-  return c.json({ statusCode: 200, total: 1, data: filteredData }, 200);
+  return ctx.json({ statusCode: 200, total: 1, data: filteredData }, 200);
 });
 
-app.get("/api/:urutan", (c) => {
-  const urutan = c.req.param();
+app.get("/api/:urutan", (ctx) => {
+  const urutan = ctx.req.param();
 
   const filteredData = asmaulHusna.filter(
     (item) => item.urutan === Number(urutan.urutan)
   )[0];
 
+  setHeader(ctx, {
+    contentType: "application/json",
+    accept: "application/json",
+  });
+
   if (!filteredData)
-    return c.json(
+    return ctx.json(
       {
         message: "Not Found",
         statusCode: 404,
@@ -92,7 +108,7 @@ app.get("/api/:urutan", (c) => {
       404
     );
 
-  return c.json(
+  return ctx.json(
     {
       statusCode: 200,
       total: 1,
@@ -102,8 +118,13 @@ app.get("/api/:urutan", (c) => {
   );
 });
 
-app.notFound((c) => {
-  return c.json(
+app.notFound((ctx) => {
+  setHeader(ctx, {
+    contentType: "application/json",
+    accept: "application/json",
+  });
+
+  return ctx.json(
     {
       message: "Not Found",
       statusCode: 404,
@@ -112,13 +133,16 @@ app.notFound((c) => {
   );
 });
 
-app.onError((err, c) => {
-  return c.json(
+app.onError((err, ctx) => {
+  setHeader(ctx, {
+    contentType: "application/json",
+    accept: "application/json",
+  });
+
+  return ctx.json(
     { message: `Error! ${err.message} because ${err.cause}`, statusCode: 500 },
     500
   );
 });
-
-serve({ fetch: app.fetch, port: 5000 });
 
 export default handle(app);

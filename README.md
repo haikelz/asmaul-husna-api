@@ -9,19 +9,40 @@
 
 | Endpoint            | Method | Description                                |
 | ------------------- | ------ | ------------------------------------------ |
+| `/`                 | GET    | Get some information about the API         |
 | `/api/all`          | GET    | Get all Asma'ul Husna                      |
 | `/api/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
 | `/api/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
 
 ## Response Example
 
-**Note:** If you choose to use GraphQL instead of REST version, please use POST Method to get the data.
+**Get some information about the API**
+
+Request:
+
+```ts
+fetch("https://asmaul-husna-api.vercel.app")
+  .then((res) => res.json())
+  .then((result) => console.log(result));
+```
+
+Response:
+
+```json
+{
+  "author": "Haikel Ilham Hakim",
+  "repository": "https://github.com/haikelz/asmaul-husna-api",
+  "endpoints": {
+    "/api/all": "Get all Asma'ul Husna. Available queries: limit and page",
+    "/api/:urutan": "Get spesific Asma'ul Husna based on urutan",
+    "/api/latin/:latin": "Get spesific Asma'ul Husna based on latin"
+  }
+}
+```
 
 **Get all Asma'ul Husna**
 
 Request:
-
-- Rest
 
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/all")
@@ -154,7 +175,9 @@ Response:
 
 - First, clone this repo.
 - Install all needed depedencies with `pnpm install`.
-- Type `pnpm run dev` and see the result in `http://localhost:5000`
+- Install Vercel globally `pnpm i -g vercel@latest` or `npm i -g vercel@latest`.
+- Setup and integrate your Vercel CLI.
+- After that, type `pnpm run start` and see the result in `http://localhost:3000`.
 
 ## Credits
 

@@ -10,9 +10,8 @@
     "type": "git",
     "url": "https://github.com/haikelz/asmaul-husna-api"
   },
-  "type": "module",
   "scripts": {
-    "dev": "tsx watch src/main.ts",
+    "start": "vercel dev",
     "deploy": "vercel"
   },
   "dependencies": {
@@ -22,7 +21,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
-    "tsx": "^4.7.2",
     "vercel": "^33.7.0"
   }
 }
