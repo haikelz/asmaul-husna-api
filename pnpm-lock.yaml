@@ -5,9 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@hono/graphql-server':
+    specifier: ^0.4.3
+    version: 0.4.3(hono@4.2.2)
   '@hono/node-server':
     specifier: ^1.9.1
     version: 1.9.1
+  graphql:
+    specifier: ^16.8.1
+    version: 16.8.1
   hono:
     specifier: ^4.2.2
     version: 4.2.2
@@ -63,6 +69,16 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
     dev: true
+
+  /@hono/graphql-server@0.4.3(hono@4.2.2):
+    resolution: {integrity: sha512-HSoOeW5F0PdlKaxC5Skc2m6mSML2yXDrVAFJfu0Hifp6igqmhqh8bhY18JgkzLyn5xuAM1/suHORETpUJnA6gQ==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      hono: '>=3.0.0'
+    dependencies:
+      graphql: 16.8.1
+      hono: 4.2.2
+    dev: false
 
   /@hono/node-server@1.9.1:
     resolution: {integrity: sha512-XBru0xbtRlTZJyAiFJLn7XDKbCVXBaRhVQAQhB9TwND2gwj8jf9SDWIj/7VxVtNAjURJf7Ofcz58DRA6DPYiWA==}
@@ -1027,6 +1043,11 @@ packages:
   /graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
     dev: true
+
+  /graphql@16.8.1:
+    resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+    dev: false
 
   /has-unicode@2.0.1:
     resolution: {integrity: sha512-8Rf9Y83NBReMnx0gFzA8JImQACstCYWUplepDa9xprwwtmgEZUF0h/i5xSA625zB/I37EtrswSST6OXxwaaIJQ==}

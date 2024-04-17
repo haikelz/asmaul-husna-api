@@ -6,6 +6,14 @@ type APIHeaderProps = {
   accept: string;
 };
 
+/**
+ * Set header API
+ * @export
+ * @param {Context<Env, string, BlankInput>} ctx
+ * @param {APIHeaderProps} param0
+ * @param {string} param0.contentType
+ * @param {string} param0.accept
+ */
 export function setHeader(
   ctx: Context<Env, string, BlankInput>,
   { contentType, accept }: APIHeaderProps

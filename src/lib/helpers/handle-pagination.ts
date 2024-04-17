@@ -1,3 +1,14 @@
+/**
+ * A helper function to handle pagination
+ * @export
+ * @template T
+ * @param {{
+ *   data: T[];
+ *   page?: string;
+ *   limit?: string;
+ * }} obj
+ * @returns {*}
+ */
 export function handlePagination<T>(obj: {
   data: T[];
   page?: string;

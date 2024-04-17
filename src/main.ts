@@ -1,3 +1,4 @@
+import { graphqlServer } from "@hono/graphql-server";
 import { handle } from "@hono/node-server/vercel";
 import { Hono } from "hono";
 import { compress } from "hono/compress";
@@ -6,6 +7,18 @@ import { logger } from "hono/logger";
 import slugify from "slugify";
 import { handlePagination, setHeader } from "./lib/helpers";
 import { asmaulHusna } from "./lib/utils/data";
+import {
+  allResolver,
+  homeResolver,
+  latinResolver,
+  urutanResolver,
+} from "./lib/utils/graphql/resolver";
+import {
+  allSchema,
+  homeSchema,
+  latinSchema,
+  urutanSchema,
+} from "./lib/utils/graphql/schema";
 
 const app = new Hono();
 
@@ -13,12 +26,31 @@ app.use(logger());
 app.use(compress());
 app.use(cors());
 
+app.use(
+  "/api/graphql",
+  graphqlServer({ schema: homeSchema, rootResolver: homeResolver })
+);
+
+app.use(
+  "/api/graphql/all",
+  graphqlServer({ schema: allSchema, rootResolver: allResolver })
+);
+
+app.use(
+  "/api/graphql/latin/:latin",
+  graphqlServer({ schema: latinSchema, rootResolver: latinResolver })
+);
+
+app.use(
+  "/api/graphql/:urutan",
+  graphqlServer({ schema: urutanSchema, rootResolver: urutanResolver })
+);
+
 app.get("/", (ctx) => {
   const results = {
     author: "Haikel Ilham Hakim",
     repository: "https://github.com/haikelz/asmaul-husna-api",
     endpoints: {
-      "/": "Get some information about the API",
       "/api/all": "Get all Asma'ul Husna. Available queries: limit and page",
       "/api/:urutan": "Get spesific Asma'ul Husna based on urutan",
       "/api/latin/:latin": "Get spesific Asma'ul Husna based on latin",

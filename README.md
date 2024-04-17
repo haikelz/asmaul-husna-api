@@ -7,47 +7,44 @@
 
 ## Endpoints
 
-| Endpoint            | Method | Description                                |
-| ------------------- | ------ | ------------------------------------------ |
-| `/`                 | GET    | Get some information about the API         |
-| `/api/all`          | GET    | Get all Asma'ul Husna                      |
-| `/api/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
-| `/api/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
+| Endpoint                    | Method | Description                                         |
+| --------------------------- | ------ | --------------------------------------------------- |
+| `/api/all`                  | GET    | Get all Asma'ul Husna                               |
+| `/api/:urutan`              | GET    | Get spesific Asma'ul Husna based on urutan          |
+| `/api/latin/:latin`         | GET    | Get spesific Asma'ul Husna based on latin           |
+| `/api/graphql/all`          | POST   | GraphQL: get all Asma'ul Husna                      |
+| `/api/graphql/:urutan`      | POST   | GraphQL: get spesific Asma'ul Husna based on urutan |
+| `/api/graphql/latin/:latin` | POST   | GraphQL: get spesific Asma'ul Husna based on latin  |
 
 ## Response Example
 
-**Get some information about the API**
-
-Request:
-
-```ts
-fetch("https://asmaul-husna-api.vercel.app")
-  .then((res) => res.json())
-  .then((result) => console.log(result));
-```
-
-Response:
-
-```json
-{
-  "author": "Haikel Ilham Hakim",
-  "repository": "https://github.com/haikelz/asmaul-husna-api",
-  "endpoints": {
-    "/api/all": "Get all Asma'ul Husna. Available queries: limit and page",
-    "/api/:urutan": "Get spesific Asma'ul Husna based on urutan",
-    "/api/latin/:latin": "Get spesific Asma'ul Husna based on latin"
-  }
-}
-```
+**Note:** If you choose to use GraphQL instead of REST version, please use POST Method to get the data.
 
 **Get all Asma'ul Husna**
 
 Request:
 
+- Rest
+
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/all")
   .then((res) => res.json())
   .then((result) => console.log(result));
+```
+
+- GraphQL
+
+```graphql
+query GetAllAsmaulHusna {
+  statusCode
+  total
+  data {
+    urutan
+    latin
+    arab
+    arti
+  }
+}
 ```
 
 Response:
@@ -80,10 +77,16 @@ Response:
 }
 ```
 
-With `page` and `limit`
+With `page` and `limit`(Rest or GraphQL)
 
 ```ts
+// REST
 fetch("https://asmaul-husna-api.vercel.app/api/all?page=2&limit=20")
+  .then((res) => res.json())
+  .then((result) => console.log(result));
+
+// GraphQL
+fetch("https://asmaul-husna-api.vercel.app/api/graphql/all?page=2&limit=20")
   .then((res) => res.json())
   .then((result) => console.log(result));
 ```
@@ -123,10 +126,27 @@ Response:
 
 Request:
 
+- Rest
+
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/1")
   .then((res) => res.json())
   .then((result) => console.log(result));
+```
+
+- GraphQL
+
+```graphql
+query GetDataBasedOnUrutan {
+  statusCode
+  total
+  data {
+    urutan
+    latin
+    arab
+    arti
+  }
+}
 ```
 
 Response:
@@ -150,10 +170,27 @@ Note: the latin can be lowercase or uppercase.
 
 Request:
 
+- Rest
+
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/latin/ar-rahman")
   .then((res) => res.json())
   .then((result) => console.log(result));
+```
+
+- GraphQL
+
+```graphql
+query GetDataBasedOnLatin {
+  statusCode
+  total
+  data {
+    urutan
+    latin
+    arab
+    arti
+  }
+}
 ```
 
 Response:
@@ -175,9 +212,8 @@ Response:
 
 - First, clone this repo.
 - Install all needed depedencies with `pnpm install`.
-- Install Vercel globally `pnpm i -g vercel@latest` or `npm i -g vercel@latest`.
-- Setup and integrate your Vercel CLI.
-- After that, type `pnpm run start` and see the result in `http://localhost:3000`.
+- Because this project are integrated with Vercel, so make sure that you've already installed `@vercel/cli` and connect your project with Vercel.
+- Type `pnpm run start` and see the result in `http://localhost:5000`.
 
 ## Credits
 
