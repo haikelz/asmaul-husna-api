@@ -2,9 +2,9 @@ import { buildSchema } from "graphql";
 
 export const homeSchema = buildSchema(`
 type Endpoints {
-  apigraphqlall: String
-  apigraphqlurutan: String
-  apigraphqllatinlatin: String
+  all: String
+  urutan: String
+  latin: String
 }
 
 type Query {
