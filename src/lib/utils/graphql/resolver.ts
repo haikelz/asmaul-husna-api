@@ -8,10 +8,9 @@ export const homeResolver = () => {
     author: () => "Haikel Ilham Hakim",
     repository: () => "https://github.com/haikelz/asmaul-husna-api",
     endpoints: () => ({
-      "/api/graphql/all":
-        "Get all Asma'ul Husna. Available queries: limit and page",
-      "/api/graphql/:urutan": "Get spesific Asma'ul Husna based on urutan",
-      "/api/graphql/latin/:latin": "Get spesific Asma'ul Husna based on latin",
+      all: "/api/graphql/all",
+      urutan: "/api/graphql/:urutan",
+      latin: "/api/graphql/latin/:latin",
     }),
   };
 };
