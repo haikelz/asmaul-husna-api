@@ -38,7 +38,12 @@ fetch("https://asmaul-husna-api.vercel.app/api/all")
 query GetAllAsmaulHusna {
   statusCode
   total
-  data
+  data {
+    urutan
+    latin
+    arab
+    arti
+  }
 }
 ```
 
@@ -135,7 +140,12 @@ fetch("https://asmaul-husna-api.vercel.app/api/1")
 query GetDataBasedOnUrutan {
   statusCode
   total
-  data
+  data {
+    urutan
+    latin
+    arab
+    arti
+  }
 }
 ```
 
@@ -174,7 +184,12 @@ fetch("https://asmaul-husna-api.vercel.app/api/latin/ar-rahman")
 query GetDataBasedOnLatin {
   statusCode
   total
-  data
+  data {
+    urutan
+    latin
+    arab
+    arti
+  }
 }
 ```
 
@@ -197,8 +212,8 @@ Response:
 
 - First, clone this repo.
 - Install all needed depedencies with `pnpm install`.
-- Type `pnpm run dev` and see the result in `http://localhost:5000`
-- If you want to see the Swagger Documentation of this API, change the endpoint to `/swagger`.
+- Because this project are integrated with Vercel, so make sure that you've already installed `@vercel/cli` and connect your project with Vercel.
+- Type `pnpm run start` and see the result in `http://localhost:5000`.
 
 ## Credits
 
