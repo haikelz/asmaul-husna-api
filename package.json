@@ -11,7 +11,7 @@
     "url": "https://github.com/haikelz/asmaul-husna-api"
   },
   "scripts": {
-    "start": "vercel dev",
+    "start": "vercel dev -t $VERCEL_DOCKER_TOKEN",
     "deploy": "vercel"
   },
   "dependencies": {
