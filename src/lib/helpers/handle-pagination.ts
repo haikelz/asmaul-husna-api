@@ -4,15 +4,15 @@
  * @template T
  * @param {{
  *   data: T[];
- *   page?: string;
- *   limit?: string;
+ *   page?: number;
+ *   limit?: number;
  * }} obj
  * @returns {*}
  */
 export function handlePagination<T>(obj: {
   data: T[];
-  page?: string;
-  limit?: string;
+  page?: number;
+  limit?: number;
 }) {
   const { data, page, limit } = obj;
 

@@ -7,18 +7,8 @@ import { logger } from "hono/logger";
 import slugify from "slugify";
 import { handlePagination, setHeader } from "./lib/helpers";
 import { asmaulHusna } from "./lib/utils/data";
-import {
-  allResolver,
-  homeResolver,
-  latinResolver,
-  urutanResolver,
-} from "./lib/utils/graphql/resolver";
-import {
-  allSchema,
-  homeSchema,
-  latinSchema,
-  urutanSchema,
-} from "./lib/utils/graphql/schema";
+import { resolver } from "./lib/utils/graphql/resolver";
+import { schema } from "./lib/utils/graphql/schema";
 
 const app = new Hono();
 
@@ -28,22 +18,7 @@ app.use(cors());
 
 app.use(
   "/api/graphql",
-  graphqlServer({ schema: homeSchema, rootResolver: homeResolver })
-);
-
-app.use(
-  "/api/graphql/all",
-  graphqlServer({ schema: allSchema, rootResolver: allResolver })
-);
-
-app.use(
-  "/api/graphql/latin/:latin",
-  graphqlServer({ schema: latinSchema, rootResolver: latinResolver })
-);
-
-app.use(
-  "/api/graphql/:urutan",
-  graphqlServer({ schema: urutanSchema, rootResolver: urutanResolver })
+  graphqlServer({ schema: schema, rootResolver: resolver })
 );
 
 app.get("/", (ctx) => {
@@ -70,8 +45,8 @@ app.get("/api/all", (ctx) => {
 
   const results = handlePagination({
     data: asmaulHusna,
-    page: page,
-    limit: limit,
+    page: Number(page),
+    limit: Number(limit),
   });
 
   setHeader(ctx, {
