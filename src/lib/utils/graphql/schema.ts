@@ -1,20 +1,12 @@
 import { buildSchema } from "graphql";
 
-export const homeSchema = buildSchema(`
+export const schema = buildSchema(`
 type Endpoints {
   all: String
   urutan: String
   latin: String
 }
 
-type Query {
-  author: String
-  repository: String
-  endpoints: Endpoints
-}
-`);
-
-export const allSchema = buildSchema(`
 type AsmaulHusna {
   urutan: ID!
   latin: String
@@ -22,39 +14,34 @@ type AsmaulHusna {
   arti: String
 }
 
-type Query {
+type Home {
+  author: String!
+  repository: String!
+  endpoints: String!
+}
+
+type AllAsmaulHusna {
   statusCode: ID!
   total: ID!
   data: [AsmaulHusna]
 }
-`);
 
-export const latinSchema = buildSchema(`
-type AsmaulHusna {
-  urutan: ID!
-  latin: String
-  arab: String
-  arti: String
-}
-
-type Query {
+type AsmaulHusnaByLatin {
   statusCode: ID!
   total: ID!
   data: AsmaulHusna
 }
-`);
 
-export const urutanSchema = buildSchema(`
-type AsmaulHusna {
-  urutan: ID!
-  latin: String
-  arab: String
-  arti: String
-}
-
-type Query {
+type AsmaulHusnaByUrutan {
   statusCode: ID!
   total: ID!
   data: AsmaulHusna
+}
+
+type Query {
+  home: Home
+  allAsmaulHusna(page: Int, limit: Int): AllAsmaulHusna
+  asmaulHusnaByUrutan(urutan: Int!): AsmaulHusnaByUrutan
+  asmaulHusnaByLatin(latin: String!): AsmaulHusnaByLatin
 }
 `);

@@ -7,14 +7,12 @@
 
 ## Endpoints
 
-| Endpoint                    | Method | Description                                         |
-| --------------------------- | ------ | --------------------------------------------------- |
-| `/api/all`                  | GET    | Get all Asma'ul Husna                               |
-| `/api/:urutan`              | GET    | Get spesific Asma'ul Husna based on urutan          |
-| `/api/latin/:latin`         | GET    | Get spesific Asma'ul Husna based on latin           |
-| `/api/graphql/all`          | POST   | GraphQL: get all Asma'ul Husna                      |
-| `/api/graphql/:urutan`      | POST   | GraphQL: get spesific Asma'ul Husna based on urutan |
-| `/api/graphql/latin/:latin` | POST   | GraphQL: get spesific Asma'ul Husna based on latin  |
+| Endpoint            | Method | Description                                |
+| ------------------- | ------ | ------------------------------------------ |
+| `/api/all`          | GET    | Get all Asma'ul Husna                      |
+| `/api/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
+| `/api/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
+| `/api/graphql`      | POST   | GraphQL: get all Asma'ul Husna             |
 
 ## Response Example
 
@@ -35,14 +33,16 @@ fetch("https://asmaul-husna-api.vercel.app/api/all")
 - GraphQL
 
 ```graphql
-query GetAllAsmaulHusna {
-  statusCode
-  total
-  data {
-    urutan
-    latin
-    arab
-    arti
+query {
+  allAsmaulHusna {
+    statusCode
+    total
+    data {
+      urutan
+      latin
+      arab
+      arti
+    }
   }
 }
 ```
@@ -84,11 +84,21 @@ With `page` and `limit`(Rest or GraphQL)
 fetch("https://asmaul-husna-api.vercel.app/api/all?page=2&limit=20")
   .then((res) => res.json())
   .then((result) => console.log(result));
+```
 
-// GraphQL
-fetch("https://asmaul-husna-api.vercel.app/api/graphql/all?page=2&limit=20")
-  .then((res) => res.json())
-  .then((result) => console.log(result));
+```graphql
+query {
+  allAsmaulHusna(page: 2, limit: 20) {
+    statusCode
+    total
+    data {
+      urutan
+      latin
+      arab
+      arti
+    }
+  }
+}
 ```
 
 **Note:** The `page` and `limit` query are optional. But if you want to use the `page` query, you must use the `limit` query as well.
@@ -117,7 +127,8 @@ Response:
       "latin": "Ar Raafi '",
       "arab": "الرافع",
       "arti": "Yang Maha Meninggikan(makhluknya)"
-    }
+    },
+    ...
   ]
 }
 ```
@@ -137,14 +148,16 @@ fetch("https://asmaul-husna-api.vercel.app/api/1")
 - GraphQL
 
 ```graphql
-query GetDataBasedOnUrutan {
-  statusCode
-  total
-  data {
-    urutan
-    latin
-    arab
-    arti
+query {
+  asmaulHusnaByUrutan(urutan: 1) {
+    statusCode
+    total
+    data {
+      urutan
+      latin
+      arab
+      arti
+    }
   }
 }
 ```
@@ -181,14 +194,16 @@ fetch("https://asmaul-husna-api.vercel.app/api/latin/ar-rahman")
 - GraphQL
 
 ```graphql
-query GetDataBasedOnLatin {
-  statusCode
-  total
-  data {
-    urutan
-    latin
-    arab
-    arti
+query {
+  asmaulHusnaByLatin(latin: "Ar Rahman") {
+    statusCode
+    total
+    data {
+      urutan
+      latin
+      arab
+      arti
+    }
   }
 }
 ```
