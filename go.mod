@@ -3,10 +3,13 @@ module github.com/haikelz/asmaul-husna-api
 go 1.22.7
 
 require (
+	github.com/gofiber/fiber/v2 v2.52.5
+	github.com/gosimple/slug v1.14.0
+)
+
+require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/gofiber/fiber/v2 v2.52.5 // indirect
 	github.com/google/uuid v1.5.0 // indirect
-	github.com/gosimple/slug v1.14.0 // indirect
 	github.com/gosimple/unidecode v1.0.1 // indirect
 	github.com/klauspost/compress v1.17.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect

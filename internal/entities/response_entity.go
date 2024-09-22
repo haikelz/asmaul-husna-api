@@ -15,3 +15,15 @@ type HomeResponse struct {
 	Repository string        `json:"repository"`
 	Endpoints  HomeEndpoints `json:"endpoints"`
 }
+
+type AllAsmaulHusnaResponse struct {
+	BaseResponse
+	Total int           `json:"total"`
+	Data  []AsmaulHusna `json:"data"`
+}
+
+type AsmaulHusnaDetailResponse struct {
+	BaseResponse
+	Total int         `json:"total"`
+	Data  AsmaulHusna `json:"data"`
+}
