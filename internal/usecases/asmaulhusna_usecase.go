@@ -10,12 +10,42 @@ import (
 	"github.com/haikelz/asmaul-husna-api/internal/entities"
 )
 
-func GetAll() []entities.AsmaulHusna {
+func GetAll(c *fiber.Ctx) []entities.AsmaulHusna {
+	query := c.Queries()
 	var data []entities.AsmaulHusna = configs.LoadData()
-	return data
+
+	if len(query["limit"]) != 0 || len(query["page"]) != 0 {
+		var limit = configs.ConvertToNumber(query["limit"])
+
+		if len(query["page"]) == 0 {
+			if limit <= 99 {
+				return data[0:limit]
+			} else {
+				return data
+			}
+		}
+
+		var page = configs.ConvertToNumber(query["page"])
+
+		var startValue int
+		var endValue int
+
+		if page != 0 || limit != 0 {
+			startValue = limit * (page - 1)
+			endValue = limit * (page)
+		} else {
+			startValue = 0
+			endValue = limit
+		}
+
+		var slicedData []entities.AsmaulHusna = data[startValue:endValue]
+		return slicedData
+	} else {
+		return data
+	}
 }
 
-func GetDataDasedOnUrutan(c *fiber.Ctx) entities.AsmaulHusna {
+func GetDataBasedOnUrutan(c *fiber.Ctx) entities.AsmaulHusna {
 	data := configs.LoadData()
 	asmaulHusna := []entities.AsmaulHusna{}
 

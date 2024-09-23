@@ -12,7 +12,7 @@ func FiberRoutes(app *fiber.App) {
 	})
 
 	app.Get("/api/all", func(c *fiber.Ctx) error {
-		return c.JSON(entities.AllAsmaulHusnaResponse{BaseResponse: entities.BaseResponse{StatusCode: 200}, Total: 99, Data: usecases.GetAll()})
+		return c.JSON(entities.AllAsmaulHusnaResponse{BaseResponse: entities.BaseResponse{StatusCode: 200}, Total: 99, Data: usecases.GetAll(c)})
 	})
 
 	app.Get("/api/latin/:latin", func(c *fiber.Ctx) error {
@@ -20,6 +20,6 @@ func FiberRoutes(app *fiber.App) {
 	})
 
 	app.Get("/api/:urutan", func(c *fiber.Ctx) error {
-		return c.JSON(entities.AsmaulHusnaDetailResponse{BaseResponse: entities.BaseResponse{StatusCode: 200}, Total: 1, Data: usecases.GetDataDasedOnUrutan(c)})
+		return c.JSON(entities.AsmaulHusnaDetailResponse{BaseResponse: entities.BaseResponse{StatusCode: 200}, Total: 1, Data: usecases.GetDataBasedOnUrutan(c)})
 	})
 }

@@ -10,6 +10,12 @@ type HomeEndpoints struct {
 	Latin  string `json:"latin"`
 }
 
+type Pagination struct {
+	Data  []AsmaulHusna `json:"data"`
+	Limit int           `json:"limit"`
+	Page  int           `json:"page"`
+}
+
 type HomeResponse struct {
 	Author     string        `json:"author"`
 	Repository string        `json:"repository"`
