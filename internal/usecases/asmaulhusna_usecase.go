@@ -66,12 +66,12 @@ func GetDataBasedOnUrutan(c *fiber.Ctx) entities.AsmaulHusna {
 
 func GetDataBasedOnLatin(c *fiber.Ctx) entities.AsmaulHusna {
 	data := configs.LoadData()
-	paramsLatin := slug.Make(c.Params("latin"))
 
-	var asmaulHusna []entities.AsmaulHusna
+	paramsLatin := slug.Make(c.Params("latin"))
+	asmaulHusna := []entities.AsmaulHusna{}
 
 	for i := range data {
-		if slug.Make(asmaulHusna[i].Latin) == paramsLatin {
+		if slug.Make(data[i].Latin) == paramsLatin {
 			asmaulHusna = append(asmaulHusna, data[i])
 		}
 	}
