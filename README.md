@@ -12,17 +12,39 @@
 | `/api/all`          | GET    | Get all Asma'ul Husna                      |
 | `/api/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
 | `/api/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
+| `/api/graphql`      | POST   | GraphQL: get all Asma'ul Husna             |
 
 ## Response Example
+
+**Note:** If you choose to use GraphQL instead of REST version, please use POST Method to get the data.
 
 **Get all Asma'ul Husna**
 
 Request:
 
+- Rest
+
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/all")
   .then((res) => res.json())
   .then((result) => console.log(result));
+```
+
+- GraphQL
+
+```graphql
+query {
+  allAsmaulHusna {
+    statusCode
+    total
+    data {
+      urutan
+      latin
+      arab
+      arti
+    }
+  }
+}
 ```
 
 Response:
@@ -127,6 +149,8 @@ Note: the latin can be lowercase or uppercase.
 
 Request:
 
+- Rest
+
 ```ts
 fetch("https://asmaul-husna-api.vercel.app/api/latin/ar-rahman")
   .then((res) => res.json())
@@ -151,8 +175,9 @@ Response:
 ## Getting Started
 
 - First, clone this repo.
-- Go mod tidy.
-- Type `pnpm run start` and see the result in `http://localhost:5000`.
+- Install all needed depedencies with `pnpm install`.
+- Because this project are integrated with Vercel, so make sure that you've already installed `@vercel/cli` and connect your project with Vercel.
+- Typer `vercel` and see the result.
 
 ## Credits
 

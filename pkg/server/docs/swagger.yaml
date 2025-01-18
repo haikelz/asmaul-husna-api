@@ -1,0 +1,113 @@
+definitions:
+  models.APIErrorResponse:
+    properties:
+      message:
+        type: string
+      statusCode:
+        type: integer
+    type: object
+  models.APIResponse:
+    properties:
+      data: {}
+      statusCode:
+        type: integer
+      total:
+        type: integer
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Asmaul Husna API
+  version: "1.0"
+paths:
+  /api/{urutan}:
+    get:
+      consumes:
+      - application/json
+      description: Get Asma'ul Husna based on urutan
+      parameters:
+      - description: Urutan
+        in: path
+        name: urutan
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get Asma'ul Husna success!
+          schema:
+            $ref: '#/definitions/models.APIResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.APIResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.APIErrorResponse'
+      summary: Get Asma'ul Husna based on urutan
+      tags:
+      - AsmaulHusna
+  /api/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all Asma'ul Husna with optional query page and limit
+      parameters:
+      - in: query
+        name: limit
+        type: integer
+      - in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get Asma'ul Husna success!
+          schema:
+            $ref: '#/definitions/models.APIResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.APIErrorResponse'
+      summary: Get all Asma'ul Husna with optional query page and limit
+      tags:
+      - AsmaulHusna
+  /api/latin/{latin}:
+    get:
+      consumes:
+      - application/json
+      description: Get Asma'ul Husna based on latin.
+      parameters:
+      - description: Latin
+        in: path
+        name: latin
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get Asma'ul Husna success!
+          schema:
+            $ref: '#/definitions/models.APIResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.APIErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.APIErrorResponse'
+      summary: Get Asma'ul Husna based on latin
+      tags:
+      - AsmaulHusna
+swagger: "2.0"
