@@ -8,6 +8,6 @@ type EndpointsInfo struct {
 
 type HomeInfo struct {
 	Author     string        `json:"author"`
-	Repository string        `json:"latin"`
+	Repository string        `json:"repository"`
 	Endpoints  EndpointsInfo `json:"endpoints"`
 }
