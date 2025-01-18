@@ -148,6 +148,14 @@ Response:
 }
 ```
 
+## Tech Stack
+
+- Go
+- Fiber
+- bytedance/sonic
+- Swagger for API Documentation
+- Prometheus and Grafana for API monitoring
+
 ## Getting Started
 
 - First, clone this repo.
