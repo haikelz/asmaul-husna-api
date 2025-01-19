@@ -1,10 +1,10 @@
 package services
 
 import (
-	"asmaul-husna-golang/pkg/entities"
-	"asmaul-husna-golang/pkg/models/converters"
-	"asmaul-husna-golang/pkg/models/responses"
-	"asmaul-husna-golang/pkg/utils"
+	"asmaul-husna/pkg/entities"
+	"asmaul-husna/pkg/models/converters"
+	"asmaul-husna/pkg/models/responses"
+	"asmaul-husna/pkg/utils"
 	"math"
 
 	"github.com/gosimple/slug"

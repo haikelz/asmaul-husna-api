@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"asmaul-husna-golang/pkg/entities"
+	"asmaul-husna/pkg/entities"
 	_ "embed"
 )
 

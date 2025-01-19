@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"asmaul-husna-golang/pkg/controllers"
-	"asmaul-husna-golang/pkg/services"
+	"asmaul-husna/pkg/controllers"
+	"asmaul-husna/pkg/services"
 
 	"github.com/gofiber/fiber/v2"
 )

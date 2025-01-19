@@ -152,7 +152,6 @@ Response:
 
 - Go
 - Fiber
-- bytedance/sonic
 - Swagger for API Documentation
 - Prometheus and Grafana for API monitoring
 

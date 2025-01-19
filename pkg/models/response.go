@@ -6,7 +6,7 @@ type APIErrorResponse struct {
 	Stack      string `json:"-"`
 }
 
-type APIResponse struct {
+type APISuccessResponse struct {
 	StatusCode int         `json:"statusCode"`
 	Total      int         `json:"total"`
 	Data       interface{} `json:"data,omitempty"`

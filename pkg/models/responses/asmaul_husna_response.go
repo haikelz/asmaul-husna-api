@@ -1,6 +1,6 @@
 package responses
 
-import "asmaul-husna-golang/pkg/entities"
+import "asmaul-husna/pkg/entities"
 
 type AsmaulHusna struct {
 	Urutan int    `json:"urutan"`
