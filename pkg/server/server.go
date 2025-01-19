@@ -35,7 +35,13 @@ func New() *FiberApp {
 	server.Use(csrf.New())
 	server.Use(favicon.New())
 	server.Use(healthcheck.New())
-	server.Use(helmet.New())
+
+	// Set COEP to credentialless. In this case, we want to allow Swagger docs to show its UI
+	// Default COEP: require-corp
+	// @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy
+	// @see https://docs.gofiber.io/api/middleware/helmet
+	server.Use(helmet.New(helmet.Config{CrossOriginEmbedderPolicy: "credentialless"}))
+
 	server.Use(recover.New())
 	server.Use(etag.New())
 	server.Use(logger.New(logger.Config{Format: "${ip} ${pid} ${locals:requestid} ${status} - ${method} ${path}\n"}))
