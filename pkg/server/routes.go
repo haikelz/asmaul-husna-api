@@ -1,8 +1,8 @@
 package server
 
 import (
-	"asmaul-husna-golang/pkg/entities"
-	"asmaul-husna-golang/pkg/server/routes"
+	"asmaul-husna/pkg/entities"
+	"asmaul-husna/pkg/server/routes"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -11,7 +11,6 @@ func (s *FiberApp) RegisterFiberRoutes() {
 	api := s.App.Group("/api")
 
 	s.App.Get("/", s.HomeHandler)
-
 	routes.AsmaulHusnaRoute(api)
 }
 

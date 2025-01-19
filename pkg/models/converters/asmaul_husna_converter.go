@@ -1,8 +1,8 @@
 package converters
 
 import (
-	"asmaul-husna-golang/pkg/entities"
-	"asmaul-husna-golang/pkg/models/responses"
+	"asmaul-husna/pkg/entities"
+	"asmaul-husna/pkg/models/responses"
 )
 
 func ConvertAsmaulHusnaToAsmaulHusnaResponse(asmaulHusna entities.AsmaulHusna) *responses.AsmaulHusna {

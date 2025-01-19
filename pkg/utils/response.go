@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"asmaul-husna-golang/pkg/models"
+	"asmaul-husna/pkg/models"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -16,7 +16,7 @@ func ErrorResponse(c *fiber.Ctx, statusCode int, message string) error {
 }
 
 func SuccessResponse(c *fiber.Ctx, statusCode int, total int, data interface{}) error {
-	response := models.APIResponse{
+	response := models.APISuccessResponse{
 		StatusCode: statusCode,
 		Total:      total,
 		Data:       data,

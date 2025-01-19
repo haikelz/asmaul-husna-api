@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"asmaul-husna-golang/pkg/services"
-	"asmaul-husna-golang/pkg/utils"
+	"asmaul-husna/pkg/services"
+	"asmaul-husna/pkg/utils"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gosimple/slug"
@@ -25,7 +25,7 @@ func NewAsmaulHusnaController(asmaulHusnaService *services.AsmaulHusnaService) *
 // @Accept  json
 // @Produce	json
 // @Param 	param	query	requests.AllAsmaulHusnaRequest	false	"query"
-// @Success 200	{object} 	models.APIResponse 		"Get Asma'ul Husna success!"
+// @Success 200	{object} 	models.APISuccessResponse 		"Get Asma'ul Husna success!"
 // @Failure 500 {object} models.APIErrorResponse "Internal Server Error"
 // @Router 	/api/all  	[get]
 func (ac *AsmaulHusnaController) AllAsmaulHusnaHandler(c *fiber.Ctx) error {
@@ -51,8 +51,8 @@ func (ac *AsmaulHusnaController) AllAsmaulHusnaHandler(c *fiber.Ctx) error {
 // @Accept  json
 // @Produce	json
 // @Param urutan path string true "Urutan"
-// @Success 200	{object} 	models.APIResponse 		"Get Asma'ul Husna based on urutan success!"
-// @Failure 400 {object} models.APIResponse "Bad Request"
+// @Success 200	{object} 	models.APISuccessResponse 		"Get Asma'ul Husna based on urutan success!"
+// @Failure 400 {object} models.APISuccessResponse "Bad Request"
 // @Failure 500 {object} models.APIErrorResponse "Internal Server Error"
 // @Router 	/api/{urutan}  	[get]
 func (ac *AsmaulHusnaController) AsmaulHusnaBasedOnUrutanHandler(c *fiber.Ctx) error {
@@ -76,7 +76,7 @@ func (ac *AsmaulHusnaController) AsmaulHusnaBasedOnUrutanHandler(c *fiber.Ctx) e
 // @Accept json
 // @Produce json
 // @Param latin path string true "Latin"
-// @Success 200 {object} models.APIResponse "Get Asma'ul Husna based on latin success!"
+// @Success 200 {object} models.APISuccessResponse "Get Asma'ul Husna based on latin success!"
 // @Failure 400 {object} models.APIErrorResponse "Bad Request"
 // @Failure 500 {object} models.APIErrorResponse "Internal Server Error"
 // @Router /api/latin/{latin} [get]

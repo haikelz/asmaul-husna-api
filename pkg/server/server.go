@@ -21,10 +21,12 @@ type FiberApp struct {
 func New() *FiberApp {
 	server := &FiberApp{
 		App: fiber.New(fiber.Config{
-			ServerHeader: "asmaulhusna",
-			AppName:      "asmaulhusna",
-			JSONEncoder:  sonic.Marshal,
-			JSONDecoder:  sonic.Unmarshal,
+			ServerHeader:  "asmaulhusna",
+			AppName:       "asmaulhusna",
+			JSONEncoder:   sonic.Marshal,
+			JSONDecoder:   sonic.Unmarshal,
+			Prefork:       true,
+			StrictRouting: true,
 		}),
 	}
 

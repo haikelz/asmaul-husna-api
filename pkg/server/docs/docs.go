@@ -53,7 +53,7 @@ const docTemplate = `{
                     "200": {
                         "description": "Get Asma'ul Husna success!",
                         "schema": {
-                            "$ref": "#/definitions/models.APIResponse"
+                            "$ref": "#/definitions/models.APISuccessResponse"
                         }
                     },
                     "500": {
@@ -89,9 +89,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "Get Asma'ul Husna success!",
+                        "description": "Get Asma'ul Husna based on latin success!",
                         "schema": {
-                            "$ref": "#/definitions/models.APIResponse"
+                            "$ref": "#/definitions/models.APISuccessResponse"
                         }
                     },
                     "400": {
@@ -133,15 +133,15 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "Get Asma'ul Husna success!",
+                        "description": "Get Asma'ul Husna based on urutan success!",
                         "schema": {
-                            "$ref": "#/definitions/models.APIResponse"
+                            "$ref": "#/definitions/models.APISuccessResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/models.APIResponse"
+                            "$ref": "#/definitions/models.APISuccessResponse"
                         }
                     },
                     "500": {
@@ -166,7 +166,7 @@ const docTemplate = `{
                 }
             }
         },
-        "models.APIResponse": {
+        "models.APISuccessResponse": {
             "type": "object",
             "properties": {
                 "data": {},
