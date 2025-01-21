@@ -3,7 +3,6 @@ package server
 import (
 	"asmaul-husna/pkg/configs"
 
-	"github.com/gofiber/contrib/swagger"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -40,8 +39,6 @@ func New() *FiberApp {
 	server.Use(recover.New())
 	server.Use(etag.New())
 	server.Use(logger.New(logger.Config{Format: "${ip} ${pid} ${locals:requestid} ${status} - ${method} ${path}\n"}))
-
-	server.Use(swagger.New(configs.SwgCfg))
 
 	return server
 }

@@ -4,10 +4,8 @@ services:
     image: prom/prometheus:latest
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yaml"
     ports:
-      - "9090:9090"
+      - "127.0.0.1:9090:9090"
     networks:
       - monitoring
     extra_hosts:
@@ -17,7 +15,7 @@ services:
     container_name: grafana
     image: grafana/grafana-oss:latest
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     networks:
       - monitoring
     depends_on:
