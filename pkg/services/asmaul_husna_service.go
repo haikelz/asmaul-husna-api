@@ -21,7 +21,7 @@ func NewAsmaulHusnaService() *AsmaulHusnaService {
 	}
 }
 
-func (s *AsmaulHusnaService) GetAllAsmaulHusna(page int, limit int) (*responses.AllAsmaulHusna, error) {
+func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int) (*responses.AllAsmaulHusna, error) {
 	allAsmaulHusna, err := utils.LoadAsmaulHusnaData()
 	if err != nil {
 		return nil, err

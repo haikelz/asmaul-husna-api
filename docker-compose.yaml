@@ -4,6 +4,8 @@ services:
     image: prom/prometheus:latest
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yaml"
     ports:
       - "127.0.0.1:9090:9090"
     networks:
@@ -20,7 +22,7 @@ services:
       - monitoring
     depends_on:
       - prometheus
-
+     
 networks:
   monitoring:
     driver: bridge

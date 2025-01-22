@@ -15,14 +15,11 @@ func PrometheusMiddleware() fiber.Handler {
 		method := c.Method()
 		path := c.Path()
 
-		// Track active requests
 		configs.MetricActiveRequests.Inc()
 		defer configs.MetricActiveRequests.Dec()
 
-		// Process request
 		err := c.Next()
 
-		// Record metrics
 		status := strconv.Itoa(c.Response().StatusCode())
 		duration := time.Since(start).Seconds()
 
