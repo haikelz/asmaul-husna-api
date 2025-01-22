@@ -2,7 +2,6 @@ package utils
 
 import (
 	"asmaul-husna/pkg/entities"
-	_ "embed"
 )
 
 // An utility function to load Asma'ul Husna

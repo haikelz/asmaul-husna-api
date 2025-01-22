@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"asmaul-husna/pkg/entities"
 	"asmaul-husna/pkg/models"
 
 	"github.com/gofiber/fiber/v2"
@@ -23,4 +24,8 @@ func SuccessResponse(c *fiber.Ctx, statusCode int, total int, data interface{}) 
 	}
 
 	return c.Status(statusCode).JSON(response)
+}
+
+func HomeInfoResponse(c *fiber.Ctx, statusCode int, info entities.HomeInfo) error {
+	return c.Status(statusCode).JSON(info)
 }

@@ -8,10 +8,14 @@ import (
 )
 
 func AsmaulHusnaRoute(api fiber.Router) {
+	route := api.Group("/api")
+
 	asmaulHusnaService := services.NewAsmaulHusnaService()
 	asmaulHusnaController := controllers.NewAsmaulHusnaController(asmaulHusnaService)
 
-	api.Get("all", asmaulHusnaController.AllAsmaulHusnaHandler)
-	api.Get("/latin/:latin", asmaulHusnaController.AsmaulHusnaBasedOnLatinHandler)
-	api.Get("/:urutan", asmaulHusnaController.AsmaulHusnaBasedOnUrutanHandler)
+	api.Get("/", asmaulHusnaController.HomeInfoHandler)
+
+	route.Get("all", asmaulHusnaController.AllAsmaulHusnaHandler)
+	route.Get("/latin/:latin", asmaulHusnaController.AsmaulHusnaBasedOnLatinHandler)
+	route.Get("/:urutan", asmaulHusnaController.AsmaulHusnaBasedOnUrutanHandler)
 }

@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"asmaul-husna/pkg/entities"
 	"asmaul-husna/pkg/services"
 	"asmaul-husna/pkg/utils"
 
@@ -16,6 +17,29 @@ func NewAsmaulHusnaController(asmaulHusnaService *services.AsmaulHusnaService) *
 	return &AsmaulHusnaController{
 		AsmaulHusnaService: asmaulHusnaService,
 	}
+}
+
+// HomeInfoHandler godoc
+// @Summary Get Info about the API
+// @Description Get Info about the API.
+// @Tags	AsmaulHusna
+// @Accept  json
+// @Produce	json
+// @Success 200	{object} 	models.APIInfoResponse 		"Get Info success!"
+// @Failure 500 {object} models.APIErrorResponse "Internal Server Error"
+// @Router 	/  	[get]
+func (ac *AsmaulHusnaController) HomeInfoHandler(c *fiber.Ctx) error {
+	info := entities.HomeInfo{
+		Author:     "Haikel Ilham Hakim",
+		Repository: "https://github.com/haikelz/asmaul-husna-api",
+		Endpoints: entities.EndpointsInfo{
+			All:    "/api/all",
+			Urutan: "/api/:urutan",
+			Latin:  "/api/latin/:latin",
+		},
+	}
+
+	return utils.HomeInfoResponse(c, fiber.StatusOK, info)
 }
 
 // AllAsmaulHusnaHandler godoc
@@ -34,7 +58,7 @@ func (ac *AsmaulHusnaController) AllAsmaulHusnaHandler(c *fiber.Ctx) error {
 	queryLimit := utils.ConvertStringToNumber(query["limit"])
 	queryPage := utils.ConvertStringToNumber(query["page"])
 
-	allAsmaulHusna, err := ac.AsmaulHusnaService.GetAllAsmaulHusna(queryPage, queryLimit)
+	allAsmaulHusna, err := ac.AsmaulHusnaService.GetAllAsmaulHusnaWithPagination(queryPage, queryLimit)
 	if err != nil {
 		return utils.ErrorResponse(c, fiber.StatusInternalServerError, err.Error())
 	}
