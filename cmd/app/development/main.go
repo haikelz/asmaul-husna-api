@@ -10,14 +10,21 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-// Run project in local
+// @title Asmaul Husna API
+// @version 1.0
+// @termsOfService http://swagger.io/terms/
+// @contact.name API Support
+// @contact.url http://www.swagger.io/support
+// @contact.email support@swagger.io
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 func main() {
 	server := server.New()
 	server.RegisterFiberRoutes()
 
-	server.Use(swagger.New(configs.SwgCfg))
 	server.Use(middleware.PrometheusMiddleware())
 	server.Use("/metrics", adaptor.HTTPHandler(promhttp.Handler()))
+	server.Use(swagger.New(configs.SwgCfg))
 
 	server.Listen(":5000")
 }

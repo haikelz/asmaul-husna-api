@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "cmd/app/index.go",
+      "src": "cmd/app/production/index.go",
       "use": "@vercel/go"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/cmd/app/index.go",  
+      "dest": "/cmd/app/production/index.go",
       "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
     }
   ]

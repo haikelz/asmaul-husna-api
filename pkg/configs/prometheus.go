@@ -5,7 +5,6 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promauto"
 )
 
-// Define metrics
 var (
 	MetricHttpRequestsTotal = promauto.NewCounterVec(
 		prometheus.CounterOpts{
