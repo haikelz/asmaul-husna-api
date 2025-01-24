@@ -13,6 +13,7 @@ func AsmaulHusnaRoute(api fiber.Router) {
 	asmaulHusnaService := services.NewAsmaulHusnaService()
 	asmaulHusnaController := controllers.NewAsmaulHusnaController(asmaulHusnaService)
 
+	// Without grouping
 	api.Get("/", asmaulHusnaController.HomeInfoHandler)
 
 	route.Get("all", asmaulHusnaController.AllAsmaulHusnaHandler)

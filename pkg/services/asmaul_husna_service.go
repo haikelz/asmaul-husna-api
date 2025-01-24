@@ -22,11 +22,7 @@ func NewAsmaulHusnaService() *AsmaulHusnaService {
 }
 
 func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int) (*responses.AllAsmaulHusna, error) {
-	allAsmaulHusna, err := utils.LoadAsmaulHusnaData()
-	if err != nil {
-		return nil, err
-	}
-
+	allAsmaulHusna := utils.LoadAsmaulHusnaData()
 	allAsmaulHusnaLength := len(allAsmaulHusna)
 
 	if page == 1 && limit == 0 {
@@ -65,10 +61,7 @@ func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int
 }
 
 func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnUrutan(urutan int) (*responses.AsmaulHusna, error) {
-	allAsmaulHusna, err := utils.LoadAsmaulHusnaData()
-	if err != nil {
-		return nil, err
-	}
+	allAsmaulHusna := utils.LoadAsmaulHusnaData()
 
 	var asmaulHusna entities.AsmaulHusna
 
@@ -82,10 +75,7 @@ func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnUrutan(urutan int) (*responses
 }
 
 func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnLatin(latin string) (*responses.AsmaulHusna, error) {
-	allAsmaulHusna, err := utils.LoadAsmaulHusnaData()
-	if err != nil {
-		return nil, err
-	}
+	allAsmaulHusna := utils.LoadAsmaulHusnaData()
 
 	var asmaulHusna entities.AsmaulHusna
 

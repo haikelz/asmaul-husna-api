@@ -1,9 +1,9 @@
 package entities
 
 type EndpointsInfo struct {
-	All    string `json:"all"`
-	Urutan string `json:"urutan"`
-	Latin  string `json:"latin"`
+	All    string `json:"all" validate:"required"`
+	Urutan string `json:"urutan" validate:"required"`
+	Latin  string `json:"latin" validate:"required"`
 }
 
 type HomeInfo struct {

@@ -5,7 +5,7 @@ import (
 )
 
 // An utility function to load Asma'ul Husna
-func LoadAsmaulHusnaData() ([]entities.AsmaulHusna, error) {
+func LoadAsmaulHusnaData() []entities.AsmaulHusna {
 	var data []entities.AsmaulHusna = []entities.AsmaulHusna{
 		{
 			Urutan: 1,
@@ -602,5 +602,5 @@ func LoadAsmaulHusnaData() ([]entities.AsmaulHusna, error) {
 		},
 	}
 
-	return data, nil
+	return data
 }

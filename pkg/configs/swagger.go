@@ -6,10 +6,11 @@ import (
 	"github.com/gofiber/contrib/swagger"
 )
 
+var filePath string = utils.FormatToAbsolutePath("pkg/server/docs/swagger.json")
 var SwgCfg = swagger.Config{
 	BasePath: "/",
-	FilePath: utils.AbsolutePath("pkg/server/docs/swagger.json"),
+	FilePath: filePath,
 	Path:     "docs",
-	Title:    "Asma'ul Husna Docs",
+	Title:    "Asma'ul Husna API Docs",
 	CacheAge: 60,
 }

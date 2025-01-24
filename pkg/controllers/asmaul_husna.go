@@ -29,7 +29,7 @@ func NewAsmaulHusnaController(asmaulHusnaService *services.AsmaulHusnaService) *
 // @Failure 500 {object} models.APIErrorResponse "Internal Server Error"
 // @Router 	/  	[get]
 func (ac *AsmaulHusnaController) HomeInfoHandler(c *fiber.Ctx) error {
-	info := entities.HomeInfo{
+	var info entities.HomeInfo = entities.HomeInfo{
 		Author:     "Haikel Ilham Hakim",
 		Repository: "https://github.com/haikelz/asmaul-husna-api",
 		Endpoints: entities.EndpointsInfo{
