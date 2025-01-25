@@ -15,7 +15,7 @@ type APISuccessResponse struct {
 }
 
 type APIInfoResponse struct {
-	Author     string                 `json:"author"`
-	Repository string                 `json:"repository"`
-	Endpoints  entities.EndpointsInfo `json:"endpoints"`
+	Author     string                 `json:"author" validate:"required"`
+	Repository string                 `json:"repository" validate:"required"`
+	Endpoints  entities.EndpointsInfo `json:"endpoints" validate:"required"`
 }

@@ -1,10 +1,36 @@
 definitions:
+  entities.EndpointsInfo:
+    properties:
+      all:
+        type: string
+      latin:
+        type: string
+      urutan:
+        type: string
+    required:
+    - all
+    - latin
+    - urutan
+    type: object
   models.APIErrorResponse:
     properties:
       message:
         type: string
       statusCode:
         type: integer
+    type: object
+  models.APIInfoResponse:
+    properties:
+      author:
+        type: string
+      endpoints:
+        $ref: '#/definitions/entities.EndpointsInfo'
+      repository:
+        type: string
+    required:
+    - author
+    - endpoints
+    - repository
     type: object
   models.APISuccessResponse:
     properties:
@@ -26,6 +52,25 @@ info:
   title: Asmaul Husna API
   version: "1.0"
 paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: Get Info about the API.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get Info success!
+          schema:
+            $ref: '#/definitions/models.APIInfoResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.APIErrorResponse'
+      summary: Get Info about the API
+      tags:
+      - AsmaulHusna
   /api/{urutan}:
     get:
       consumes:

@@ -9,6 +9,7 @@
 
 | Endpoint            | Method | Description                                |
 | ------------------- | ------ | ------------------------------------------ |
+| `/`                 | GET    | Get info about the API                     |
 | `/api/all`          | GET    | Get all Asma'ul Husna                      |
 | `/api/:urutan`      | GET    | Get spesific Asma'ul Husna based on urutan |
 | `/api/latin/:latin` | GET    | Get spesific Asma'ul Husna based on latin  |
