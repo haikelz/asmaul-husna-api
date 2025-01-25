@@ -7,6 +7,7 @@ import (
 )
 
 var filePath string = utils.FormatToAbsolutePath("pkg/server/docs/swagger.json")
+
 var SwgCfg = swagger.Config{
 	BasePath: "/",
 	FilePath: filePath,

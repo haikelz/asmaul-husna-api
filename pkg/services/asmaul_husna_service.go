@@ -8,17 +8,12 @@ import (
 	"math"
 
 	"github.com/gosimple/slug"
-	"gopkg.in/go-playground/validator.v9"
 )
 
-type AsmaulHusnaService struct {
-	Validator *validator.Validate
-}
+type AsmaulHusnaService struct{}
 
 func NewAsmaulHusnaService() *AsmaulHusnaService {
-	return &AsmaulHusnaService{
-		Validator: validator.New(),
-	}
+	return &AsmaulHusnaService{}
 }
 
 func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int) (*responses.AllAsmaulHusna, error) {

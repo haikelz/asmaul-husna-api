@@ -24,6 +24,35 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/": {
+            "get": {
+                "description": "Get Info about the API.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AsmaulHusna"
+                ],
+                "summary": "Get Info about the API",
+                "responses": {
+                    "200": {
+                        "description": "Get Info success!",
+                        "schema": {
+                            "$ref": "#/definitions/models.APIInfoResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.APIErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/api/all": {
             "get": {
                 "description": "Get all Asma'ul Husna with optional query page and limit",
@@ -155,6 +184,25 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "entities.EndpointsInfo": {
+            "type": "object",
+            "required": [
+                "all",
+                "latin",
+                "urutan"
+            ],
+            "properties": {
+                "all": {
+                    "type": "string"
+                },
+                "latin": {
+                    "type": "string"
+                },
+                "urutan": {
+                    "type": "string"
+                }
+            }
+        },
         "models.APIErrorResponse": {
             "type": "object",
             "properties": {
@@ -163,6 +211,25 @@ const docTemplate = `{
                 },
                 "statusCode": {
                     "type": "integer"
+                }
+            }
+        },
+        "models.APIInfoResponse": {
+            "type": "object",
+            "required": [
+                "author",
+                "endpoints",
+                "repository"
+            ],
+            "properties": {
+                "author": {
+                    "type": "string"
+                },
+                "endpoints": {
+                    "$ref": "#/definitions/entities.EndpointsInfo"
+                },
+                "repository": {
+                    "type": "string"
                 }
             }
         },

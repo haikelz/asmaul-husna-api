@@ -7,7 +7,7 @@ type EndpointsInfo struct {
 }
 
 type HomeInfo struct {
-	Author     string        `json:"author"`
-	Repository string        `json:"repository"`
-	Endpoints  EndpointsInfo `json:"endpoints"`
+	Author     string        `json:"author" validate:"required"`
+	Repository string        `json:"repository" validate:"required"`
+	Endpoints  EndpointsInfo `json:"endpoints" validate:"required"`
 }
