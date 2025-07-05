@@ -3,6 +3,7 @@ package server
 import (
 	"asmaul-husna/pkg/configs"
 
+	"github.com/gofiber/contrib/fiberzap/v2"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -11,8 +12,8 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/favicon"
 	"github.com/gofiber/fiber/v2/middleware/healthcheck"
 	"github.com/gofiber/fiber/v2/middleware/helmet"
-	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"go.uber.org/zap"
 )
 
 type FiberApp struct {
@@ -23,6 +24,11 @@ func New() *FiberApp {
 	server := &FiberApp{
 		App: configs.FbrCfg,
 	}
+
+	logger, _ := zap.NewProduction()
+	defer logger.Sync()
+
+	server.Use(fiberzap.New(fiberzap.Config{Logger: logger}))
 
 	server.Use(cors.New())
 	server.Use(compress.New(compress.Config{Level: compress.LevelBestSpeed}))
@@ -38,7 +44,6 @@ func New() *FiberApp {
 
 	server.Use(recover.New())
 	server.Use(etag.New())
-	server.Use(logger.New(logger.Config{Format: "${ip} ${pid} ${locals:requestid} ${status} - ${method} ${path}\n"}))
 
 	return server
 }
