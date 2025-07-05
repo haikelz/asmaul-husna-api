@@ -1,9 +1,11 @@
 package app
 
 import (
+	"asmaul-husna/pkg/configs"
 	"asmaul-husna/pkg/server"
 	"net/http"
 
+	"github.com/gofiber/contrib/swagger"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"
 )
 
@@ -22,6 +24,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	server := server.New()
 	server.RegisterFiberRoutes()
+	server.Use(swagger.New(configs.SwgCfg))
 
 	adaptor.FiberApp(server.App).ServeHTTP(w, r)
 }
