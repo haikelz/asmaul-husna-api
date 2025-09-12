@@ -144,10 +144,10 @@ func (x *APISuccessResponse) GetData() *responses.AsmaulHusna {
 }
 
 type APISuccessResponseAllAsmaulHusna struct {
-	state         protoimpl.MessageState    `protogen:"open.v1"`
-	StatusCode    int32                     `protobuf:"varint,1,opt,name=statusCode,proto3" json:"statusCode,omitempty"`
-	Total         int32                     `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
-	Data          *responses.AllAsmaulHusna `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	StatusCode    int32                    `protobuf:"varint,1,opt,name=statusCode,proto3" json:"statusCode,omitempty"`
+	Total         int32                    `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	Data          []*responses.AsmaulHusna `protobuf:"bytes,3,rep,name=data,proto3" json:"data,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -196,7 +196,7 @@ func (x *APISuccessResponseAllAsmaulHusna) GetTotal() int32 {
 	return 0
 }
 
-func (x *APISuccessResponseAllAsmaulHusna) GetData() *responses.AllAsmaulHusna {
+func (x *APISuccessResponseAllAsmaulHusna) GetData() []*responses.AsmaulHusna {
 	if x != nil {
 		return x.Data
 	}
@@ -279,13 +279,13 @@ const file_pkg_models_response_proto_rawDesc = "" +
 	"statusCode\x18\x01 \x01(\x05R\n" +
 	"statusCode\x12\x14\n" +
 	"\x05total\x18\x02 \x01(\x05R\x05total\x12*\n" +
-	"\x04data\x18\x03 \x01(\v2\x16.responses.AsmaulHusnaR\x04data\"\x87\x01\n" +
+	"\x04data\x18\x03 \x01(\v2\x16.responses.AsmaulHusnaR\x04data\"\x84\x01\n" +
 	" APISuccessResponseAllAsmaulHusna\x12\x1e\n" +
 	"\n" +
 	"statusCode\x18\x01 \x01(\x05R\n" +
 	"statusCode\x12\x14\n" +
-	"\x05total\x18\x02 \x01(\x05R\x05total\x12-\n" +
-	"\x04data\x18\x03 \x01(\v2\x19.responses.AllAsmaulHusnaR\x04data\"\x80\x01\n" +
+	"\x05total\x18\x02 \x01(\x05R\x05total\x12*\n" +
+	"\x04data\x18\x03 \x03(\v2\x16.responses.AsmaulHusnaR\x04data\"\x80\x01\n" +
 	"\x0fAPIInfoResponse\x12\x16\n" +
 	"\x06author\x18\x01 \x01(\tR\x06author\x12\x1e\n" +
 	"\n" +
@@ -312,13 +312,12 @@ var file_pkg_models_response_proto_goTypes = []any{
 	(*APISuccessResponseAllAsmaulHusna)(nil), // 2: models.APISuccessResponseAllAsmaulHusna
 	(*APIInfoResponse)(nil),                  // 3: models.APIInfoResponse
 	(*responses.AsmaulHusna)(nil),            // 4: responses.AsmaulHusna
-	(*responses.AllAsmaulHusna)(nil),         // 5: responses.AllAsmaulHusna
-	(*entities.EndpointsInfo)(nil),           // 6: entities.EndpointsInfo
+	(*entities.EndpointsInfo)(nil),           // 5: entities.EndpointsInfo
 }
 var file_pkg_models_response_proto_depIdxs = []int32{
 	4, // 0: models.APISuccessResponse.data:type_name -> responses.AsmaulHusna
-	5, // 1: models.APISuccessResponseAllAsmaulHusna.data:type_name -> responses.AllAsmaulHusna
-	6, // 2: models.APIInfoResponse.endpoints:type_name -> entities.EndpointsInfo
+	4, // 1: models.APISuccessResponseAllAsmaulHusna.data:type_name -> responses.AsmaulHusna
+	5, // 2: models.APIInfoResponse.endpoints:type_name -> entities.EndpointsInfo
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

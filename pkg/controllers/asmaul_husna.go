@@ -63,7 +63,7 @@ func (ac *AsmaulHusnaController) AllAsmaulHusnaHandler(c *fiber.Ctx) error {
 		return utils.ErrorResponse(c, fiber.StatusInternalServerError, err.Error())
 	}
 
-	allAsmaulHusnaLength := len(allAsmaulHusna.Data)
+	allAsmaulHusnaLength := len(allAsmaulHusna)
 
 	return utils.SuccessResponseAllAsmaulHusna(c, fiber.StatusOK, allAsmaulHusnaLength, allAsmaulHusna)
 }

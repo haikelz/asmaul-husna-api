@@ -9,7 +9,3 @@ message AsmaulHusna {
 	string arab = 3;
 	string arti = 4;
 }
-
-message AllAsmaulHusna {
-	repeated AsmaulHusna data = 1;
-}

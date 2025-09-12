@@ -27,7 +27,7 @@ func SuccessResponse(c *fiber.Ctx, statusCode int, total int, data *responses.As
 	return c.Status(statusCode).JSON(&response)
 }
 
-func SuccessResponseAllAsmaulHusna(c *fiber.Ctx, statusCode int, total int, data *responses.AllAsmaulHusna) error {
+func SuccessResponseAllAsmaulHusna(c *fiber.Ctx, statusCode int, total int, data []*responses.AsmaulHusna) error {
 	response := models.APISuccessResponseAllAsmaulHusna{
 		StatusCode: int32(statusCode),
 		Total:      int32(total),

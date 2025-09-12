@@ -14,13 +14,11 @@ func ConvertAsmaulHusnaToAsmaulHusnaResponse(asmaulHusna *entities.AsmaulHusna) 
 	}
 }
 
-func ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna *[]entities.AsmaulHusna) *responses.AllAsmaulHusna {
+func ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna *[]entities.AsmaulHusna) []*responses.AsmaulHusna {
 	var data []*responses.AsmaulHusna
 	for i := range *allAsmaulHusna {
 		data = append(data, ConvertAsmaulHusnaToAsmaulHusnaResponse(&(*allAsmaulHusna)[i]))
 	}
 
-	return &responses.AllAsmaulHusna{
-		Data: data,
-	}
+	return data
 }

@@ -21,7 +21,7 @@ message APISuccessResponse {
 message APISuccessResponseAllAsmaulHusna {
 	int32 statusCode = 1;
 	int32 total = 2;	
-	responses.AllAsmaulHusna data = 3;
+	repeated responses.AsmaulHusna data = 3;
 }
 
 message APIInfoResponse {

@@ -16,7 +16,7 @@ func NewAsmaulHusnaService() *AsmaulHusnaService {
 	return &AsmaulHusnaService{}
 }
 
-func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int) (*responses.AllAsmaulHusna, error) {
+func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int) ([]*responses.AsmaulHusna, error) {
 	allAsmaulHusna := utils.LoadAsmaulHusnaData()
 	allAsmaulHusnaLength := len(allAsmaulHusna)
 
