@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "asmaul-husna/pkg/entities/generated";
+
+package entities;
+
+message EndpointsInfo {
+	string all = 1;
+	string urutan = 2;
+	string latin = 3;
+}
+
+message HomeInfo {
+	string author = 1;
+	string repository = 2;
+	EndpointsInfo endpoints = 3;
+}

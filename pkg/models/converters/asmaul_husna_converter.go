@@ -1,11 +1,11 @@
 package converters
 
 import (
-	"asmaul-husna/pkg/entities"
+	entities "asmaul-husna/pkg/entities/generated"
 	"asmaul-husna/pkg/models/responses"
 )
 
-func ConvertAsmaulHusnaToAsmaulHusnaResponse(asmaulHusna entities.AsmaulHusna) *responses.AsmaulHusna {
+func ConvertAsmaulHusnaToAsmaulHusnaResponse(asmaulHusna *entities.AsmaulHusna) *responses.AsmaulHusna {
 	return &responses.AsmaulHusna{
 		Urutan: asmaulHusna.Urutan,
 		Arab:   asmaulHusna.Arab,
@@ -14,8 +14,13 @@ func ConvertAsmaulHusnaToAsmaulHusnaResponse(asmaulHusna entities.AsmaulHusna) *
 	}
 }
 
-func ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna []entities.AsmaulHusna) *responses.AllAsmaulHusna {
+func ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna *[]entities.AsmaulHusna) *responses.AllAsmaulHusna {
+	var data []*responses.AsmaulHusna
+	for i := range *allAsmaulHusna {
+		data = append(data, ConvertAsmaulHusnaToAsmaulHusnaResponse(&(*allAsmaulHusna)[i]))
+	}
+
 	return &responses.AllAsmaulHusna{
-		Data: allAsmaulHusna,
+		Data: data,
 	}
 }

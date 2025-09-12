@@ -1,0 +1,31 @@
+syntax = "proto3";
+package models;
+
+option go_package = "asmaul-husna/pkg/models";
+
+import "pkg/entities/proto/home_info.proto";
+import "pkg/models/responses/asmaul_husna_response.proto";
+
+message APIErrorResponse {
+	int32 statusCode = 1;
+	string message = 2;
+	string stack = 3;
+}
+
+message APISuccessResponse {
+	int32 statusCode = 1;
+	int32 total = 2;
+	responses.AsmaulHusna data = 3;
+}
+
+message APISuccessResponseAllAsmaulHusna {
+	int32 statusCode = 1;
+	int32 total = 2;	
+	responses.AllAsmaulHusna data = 3;
+}
+
+message APIInfoResponse {
+	string author = 1;
+	string repository = 2;
+	entities.EndpointsInfo endpoints = 3;
+}

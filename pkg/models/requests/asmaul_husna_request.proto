@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "asmaul-husna/pkg/models/requests";
+
+package requests;
+
+message AllAsmaulHusnaRequest {
+	int32 page = 1;
+	int32 limit = 2;
+}

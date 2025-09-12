@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"asmaul-husna/pkg/entities"
+	entities "asmaul-husna/pkg/entities/generated"
 	"asmaul-husna/pkg/services"
 	"asmaul-husna/pkg/utils"
 
@@ -32,14 +32,14 @@ func (ac *AsmaulHusnaController) HomeInfoHandler(c *fiber.Ctx) error {
 	var info entities.HomeInfo = entities.HomeInfo{
 		Author:     "Haikel Ilham Hakim",
 		Repository: "https://github.com/haikelz/asmaul-husna-api",
-		Endpoints: entities.EndpointsInfo{
+		Endpoints: &entities.EndpointsInfo{
 			All:    "/api/all",
 			Urutan: "/api/:urutan",
 			Latin:  "/api/latin/:latin",
 		},
 	}
 
-	return utils.HomeInfoResponse(c, fiber.StatusOK, info)
+	return utils.HomeInfoResponse(c, fiber.StatusOK, &info)
 }
 
 // AllAsmaulHusnaHandler godoc
@@ -65,7 +65,7 @@ func (ac *AsmaulHusnaController) AllAsmaulHusnaHandler(c *fiber.Ctx) error {
 
 	allAsmaulHusnaLength := len(allAsmaulHusna.Data)
 
-	return utils.SuccessResponse(c, fiber.StatusOK, allAsmaulHusnaLength, allAsmaulHusna.Data)
+	return utils.SuccessResponseAllAsmaulHusna(c, fiber.StatusOK, allAsmaulHusnaLength, allAsmaulHusna)
 }
 
 // AsmaulHusnaBasedOnUrutanHandler godoc

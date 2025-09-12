@@ -1,0 +1,11 @@
+syntax = "proto3";
+option go_package = "asmaul-husna/pkg/entities/generated";
+
+package entities;
+
+message AsmaulHusna {
+	int32 urutan = 1;
+	string latin = 2;
+	string arab = 3;
+	string arti = 4;
+}

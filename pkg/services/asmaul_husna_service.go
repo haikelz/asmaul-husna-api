@@ -1,7 +1,7 @@
 package services
 
 import (
-	"asmaul-husna/pkg/entities"
+	entities "asmaul-husna/pkg/entities/generated"
 	"asmaul-husna/pkg/models/converters"
 	"asmaul-husna/pkg/models/responses"
 	"asmaul-husna/pkg/utils"
@@ -21,7 +21,7 @@ func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int
 	allAsmaulHusnaLength := len(allAsmaulHusna)
 
 	if page == 1 && limit == 0 {
-		return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna), nil
+		return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(&allAsmaulHusna), nil
 	}
 
 	if page <= 0 {
@@ -29,7 +29,7 @@ func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int
 			allAsmaulHusna = allAsmaulHusna[0:limit]
 		}
 
-		return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna), nil
+		return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(&allAsmaulHusna), nil
 	}
 
 	if page > 0 || limit > 0 {
@@ -45,24 +45,24 @@ func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int
 			var round int = int(math.Round(float64(allAsmaulHusnaLength) / float64(page)))
 			allAsmaulHusna = allAsmaulHusna[round:allAsmaulHusnaLength]
 
-			return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna), nil
+			return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(&allAsmaulHusna), nil
 		}
 
 		allAsmaulHusna = allAsmaulHusna[startValue:endValue]
-		return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna), nil
+		return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(&allAsmaulHusna), nil
 	}
 
-	return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(allAsmaulHusna), nil
+	return converters.ConvertAllAsmaulHusnaToAllAsmaulHusnaResponse(&allAsmaulHusna), nil
 }
 
 func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnUrutan(urutan int) (*responses.AsmaulHusna, error) {
 	allAsmaulHusna := utils.LoadAsmaulHusnaData()
 
-	var asmaulHusna entities.AsmaulHusna
+	var asmaulHusna *entities.AsmaulHusna
 
 	for i := range allAsmaulHusna {
-		if urutan == allAsmaulHusna[i].Urutan {
-			asmaulHusna = allAsmaulHusna[i]
+		if urutan == int(allAsmaulHusna[i].Urutan) {
+			asmaulHusna = &allAsmaulHusna[i]
 		}
 	}
 
@@ -72,11 +72,11 @@ func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnUrutan(urutan int) (*responses
 func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnLatin(latin string) (*responses.AsmaulHusna, error) {
 	allAsmaulHusna := utils.LoadAsmaulHusnaData()
 
-	var asmaulHusna entities.AsmaulHusna
+	var asmaulHusna *entities.AsmaulHusna
 
 	for i := range allAsmaulHusna {
 		if latin == slug.Make(allAsmaulHusna[i].Latin) {
-			asmaulHusna = allAsmaulHusna[i]
+			asmaulHusna = &allAsmaulHusna[i]
 		}
 	}
 

@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package = "asmaul-husna/pkg/models/responses";
+
+package responses;
+
+message AsmaulHusna {
+	int32 urutan = 1;
+	string latin = 2;
+	string arab = 3;
+	string arti = 4;
+}
+
+message AllAsmaulHusna {
+	repeated AsmaulHusna data = 1;
+}

@@ -11,6 +11,7 @@ require (
 	github.com/prometheus/client_golang v1.20.5
 	github.com/swaggo/swag v1.16.4
 	go.uber.org/zap v1.27.0
+	google.golang.org/protobuf v1.36.9
 )
 
 require (
@@ -57,7 +58,6 @@ require (
 	golang.org/x/arch v0.13.0 // indirect
 	golang.org/x/sys v0.33.0 // indirect
 	golang.org/x/tools v0.29.0 // indirect
-	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
