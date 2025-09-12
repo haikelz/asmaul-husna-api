@@ -7,14 +7,12 @@ definitions:
         type: string
       urutan:
         type: string
-    required:
-    - all
-    - latin
-    - urutan
     type: object
   models.APIErrorResponse:
     properties:
       message:
+        type: string
+      stack:
         type: string
       statusCode:
         type: integer
@@ -27,17 +25,25 @@ definitions:
         $ref: '#/definitions/entities.EndpointsInfo'
       repository:
         type: string
-    required:
-    - author
-    - endpoints
-    - repository
     type: object
   models.APISuccessResponse:
     properties:
-      data: {}
+      data:
+        $ref: '#/definitions/responses.AsmaulHusna'
       statusCode:
         type: integer
       total:
+        type: integer
+    type: object
+  responses.AsmaulHusna:
+    properties:
+      arab:
+        type: string
+      arti:
+        type: string
+      latin:
+        type: string
+      urutan:
         type: integer
     type: object
 info:
@@ -46,7 +52,6 @@ info:
     name: API Support
     url: http://www.swagger.io/support
   license:
-    name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: http://swagger.io/terms/
   title: Asmaul Husna API

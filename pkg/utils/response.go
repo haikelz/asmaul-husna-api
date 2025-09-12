@@ -1,7 +1,7 @@
 package utils
 
 import (
-	entities "asmaul-husna/pkg/entities/generated"
+	entities "asmaul-husna/pkg/entities"
 	"asmaul-husna/pkg/models"
 	"asmaul-husna/pkg/models/responses"
 

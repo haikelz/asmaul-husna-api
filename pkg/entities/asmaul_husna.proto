@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "asmaul-husna/pkg/entities/generated";
+option go_package = "asmaul-husna/pkg/entities";
 
 package entities;
 

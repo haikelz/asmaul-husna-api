@@ -16,7 +16,6 @@ const docTemplate = `{
             "email": "support@swagger.io"
         },
         "license": {
-            "name": "Apache 2.0",
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         },
         "version": "{{.Version}}"
@@ -186,11 +185,6 @@ const docTemplate = `{
     "definitions": {
         "entities.EndpointsInfo": {
             "type": "object",
-            "required": [
-                "all",
-                "latin",
-                "urutan"
-            ],
             "properties": {
                 "all": {
                     "type": "string"
@@ -209,6 +203,9 @@ const docTemplate = `{
                 "message": {
                     "type": "string"
                 },
+                "stack": {
+                    "type": "string"
+                },
                 "statusCode": {
                     "type": "integer"
                 }
@@ -216,11 +213,6 @@ const docTemplate = `{
         },
         "models.APIInfoResponse": {
             "type": "object",
-            "required": [
-                "author",
-                "endpoints",
-                "repository"
-            ],
             "properties": {
                 "author": {
                     "type": "string"
@@ -236,11 +228,30 @@ const docTemplate = `{
         "models.APISuccessResponse": {
             "type": "object",
             "properties": {
-                "data": {},
+                "data": {
+                    "$ref": "#/definitions/responses.AsmaulHusna"
+                },
                 "statusCode": {
                     "type": "integer"
                 },
                 "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "responses.AsmaulHusna": {
+            "type": "object",
+            "properties": {
+                "arab": {
+                    "type": "string"
+                },
+                "arti": {
+                    "type": "string"
+                },
+                "latin": {
+                    "type": "string"
+                },
+                "urutan": {
                     "type": "integer"
                 }
             }

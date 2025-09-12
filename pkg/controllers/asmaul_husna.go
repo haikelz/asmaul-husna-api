@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	entities "asmaul-husna/pkg/entities/generated"
+	entities "asmaul-husna/pkg/entities"
 	"asmaul-husna/pkg/services"
 	"asmaul-husna/pkg/utils"
 

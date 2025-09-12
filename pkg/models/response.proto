@@ -3,7 +3,7 @@ package models;
 
 option go_package = "asmaul-husna/pkg/models";
 
-import "pkg/entities/proto/home_info.proto";
+import "pkg/entities/home_info.proto";
 import "pkg/models/responses/asmaul_husna_response.proto";
 
 message APIErrorResponse {

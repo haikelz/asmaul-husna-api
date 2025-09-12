@@ -1,7 +1,7 @@
 package utils
 
 import (
-	entities "asmaul-husna/pkg/entities/generated"
+	entities "asmaul-husna/pkg/entities"
 )
 
 // An utility function to load Asma'ul Husna

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.8
 // 	protoc        v3.19.6
-// source: pkg/entities/proto/asmaul_husna.proto
+// source: asmaul_husna.proto
 
 package entities
 
@@ -33,7 +33,7 @@ type AsmaulHusna struct {
 
 func (x *AsmaulHusna) Reset() {
 	*x = AsmaulHusna{}
-	mi := &file_pkg_entities_proto_asmaul_husna_proto_msgTypes[0]
+	mi := &file_asmaul_husna_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +45,7 @@ func (x *AsmaulHusna) String() string {
 func (*AsmaulHusna) ProtoMessage() {}
 
 func (x *AsmaulHusna) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_entities_proto_asmaul_husna_proto_msgTypes[0]
+	mi := &file_asmaul_husna_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +58,7 @@ func (x *AsmaulHusna) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AsmaulHusna.ProtoReflect.Descriptor instead.
 func (*AsmaulHusna) Descriptor() ([]byte, []int) {
-	return file_pkg_entities_proto_asmaul_husna_proto_rawDescGZIP(), []int{0}
+	return file_asmaul_husna_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *AsmaulHusna) GetUrutan() int32 {
@@ -89,11 +89,11 @@ func (x *AsmaulHusna) GetArti() string {
 	return ""
 }
 
-var File_pkg_entities_proto_asmaul_husna_proto protoreflect.FileDescriptor
+var File_asmaul_husna_proto protoreflect.FileDescriptor
 
-const file_pkg_entities_proto_asmaul_husna_proto_rawDesc = "" +
+const file_asmaul_husna_proto_rawDesc = "" +
 	"\n" +
-	"%pkg/entities/proto/asmaul_husna.proto\x12\bentities\"c\n" +
+	"\x12asmaul_husna.proto\x12\bentities\"c\n" +
 	"\vAsmaulHusna\x12\x16\n" +
 	"\x06urutan\x18\x01 \x01(\x05R\x06urutan\x12\x14\n" +
 	"\x05latin\x18\x02 \x01(\tR\x05latin\x12\x12\n" +
@@ -101,22 +101,22 @@ const file_pkg_entities_proto_asmaul_husna_proto_rawDesc = "" +
 	"\x04arti\x18\x04 \x01(\tR\x04artiB\x1bZ\x19asmaul-husna/pkg/entitiesb\x06proto3"
 
 var (
-	file_pkg_entities_proto_asmaul_husna_proto_rawDescOnce sync.Once
-	file_pkg_entities_proto_asmaul_husna_proto_rawDescData []byte
+	file_asmaul_husna_proto_rawDescOnce sync.Once
+	file_asmaul_husna_proto_rawDescData []byte
 )
 
-func file_pkg_entities_proto_asmaul_husna_proto_rawDescGZIP() []byte {
-	file_pkg_entities_proto_asmaul_husna_proto_rawDescOnce.Do(func() {
-		file_pkg_entities_proto_asmaul_husna_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_entities_proto_asmaul_husna_proto_rawDesc), len(file_pkg_entities_proto_asmaul_husna_proto_rawDesc)))
+func file_asmaul_husna_proto_rawDescGZIP() []byte {
+	file_asmaul_husna_proto_rawDescOnce.Do(func() {
+		file_asmaul_husna_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_asmaul_husna_proto_rawDesc), len(file_asmaul_husna_proto_rawDesc)))
 	})
-	return file_pkg_entities_proto_asmaul_husna_proto_rawDescData
+	return file_asmaul_husna_proto_rawDescData
 }
 
-var file_pkg_entities_proto_asmaul_husna_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_pkg_entities_proto_asmaul_husna_proto_goTypes = []any{
+var file_asmaul_husna_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_asmaul_husna_proto_goTypes = []any{
 	(*AsmaulHusna)(nil), // 0: entities.AsmaulHusna
 }
-var file_pkg_entities_proto_asmaul_husna_proto_depIdxs = []int32{
+var file_asmaul_husna_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -124,26 +124,26 @@ var file_pkg_entities_proto_asmaul_husna_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_pkg_entities_proto_asmaul_husna_proto_init() }
-func file_pkg_entities_proto_asmaul_husna_proto_init() {
-	if File_pkg_entities_proto_asmaul_husna_proto != nil {
+func init() { file_asmaul_husna_proto_init() }
+func file_asmaul_husna_proto_init() {
+	if File_asmaul_husna_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_entities_proto_asmaul_husna_proto_rawDesc), len(file_pkg_entities_proto_asmaul_husna_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_asmaul_husna_proto_rawDesc), len(file_asmaul_husna_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pkg_entities_proto_asmaul_husna_proto_goTypes,
-		DependencyIndexes: file_pkg_entities_proto_asmaul_husna_proto_depIdxs,
-		MessageInfos:      file_pkg_entities_proto_asmaul_husna_proto_msgTypes,
+		GoTypes:           file_asmaul_husna_proto_goTypes,
+		DependencyIndexes: file_asmaul_husna_proto_depIdxs,
+		MessageInfos:      file_asmaul_husna_proto_msgTypes,
 	}.Build()
-	File_pkg_entities_proto_asmaul_husna_proto = out.File
-	file_pkg_entities_proto_asmaul_husna_proto_goTypes = nil
-	file_pkg_entities_proto_asmaul_husna_proto_depIdxs = nil
+	File_asmaul_husna_proto = out.File
+	file_asmaul_husna_proto_goTypes = nil
+	file_asmaul_husna_proto_depIdxs = nil
 }

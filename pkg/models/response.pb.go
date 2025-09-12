@@ -7,7 +7,7 @@
 package models
 
 import (
-	generated "asmaul-husna/pkg/entities/generated"
+	entities "asmaul-husna/pkg/entities"
 	responses "asmaul-husna/pkg/models/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -204,10 +204,10 @@ func (x *APISuccessResponseAllAsmaulHusna) GetData() *responses.AllAsmaulHusna {
 }
 
 type APIInfoResponse struct {
-	state         protoimpl.MessageState   `protogen:"open.v1"`
-	Author        string                   `protobuf:"bytes,1,opt,name=author,proto3" json:"author,omitempty"`
-	Repository    string                   `protobuf:"bytes,2,opt,name=repository,proto3" json:"repository,omitempty"`
-	Endpoints     *generated.EndpointsInfo `protobuf:"bytes,3,opt,name=endpoints,proto3" json:"endpoints,omitempty"`
+	state         protoimpl.MessageState  `protogen:"open.v1"`
+	Author        string                  `protobuf:"bytes,1,opt,name=author,proto3" json:"author,omitempty"`
+	Repository    string                  `protobuf:"bytes,2,opt,name=repository,proto3" json:"repository,omitempty"`
+	Endpoints     *entities.EndpointsInfo `protobuf:"bytes,3,opt,name=endpoints,proto3" json:"endpoints,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -256,7 +256,7 @@ func (x *APIInfoResponse) GetRepository() string {
 	return ""
 }
 
-func (x *APIInfoResponse) GetEndpoints() *generated.EndpointsInfo {
+func (x *APIInfoResponse) GetEndpoints() *entities.EndpointsInfo {
 	if x != nil {
 		return x.Endpoints
 	}
@@ -267,7 +267,7 @@ var File_pkg_models_response_proto protoreflect.FileDescriptor
 
 const file_pkg_models_response_proto_rawDesc = "" +
 	"\n" +
-	"\x19pkg/models/response.proto\x12\x06models\x1a\"pkg/entities/proto/home_info.proto\x1a0pkg/models/responses/asmaul_husna_response.proto\"b\n" +
+	"\x19pkg/models/response.proto\x12\x06models\x1a\x1cpkg/entities/home_info.proto\x1a0pkg/models/responses/asmaul_husna_response.proto\"b\n" +
 	"\x10APIErrorResponse\x12\x1e\n" +
 	"\n" +
 	"statusCode\x18\x01 \x01(\x05R\n" +
@@ -313,7 +313,7 @@ var file_pkg_models_response_proto_goTypes = []any{
 	(*APIInfoResponse)(nil),                  // 3: models.APIInfoResponse
 	(*responses.AsmaulHusna)(nil),            // 4: responses.AsmaulHusna
 	(*responses.AllAsmaulHusna)(nil),         // 5: responses.AllAsmaulHusna
-	(*generated.EndpointsInfo)(nil),          // 6: entities.EndpointsInfo
+	(*entities.EndpointsInfo)(nil),           // 6: entities.EndpointsInfo
 }
 var file_pkg_models_response_proto_depIdxs = []int32{
 	4, // 0: models.APISuccessResponse.data:type_name -> responses.AsmaulHusna

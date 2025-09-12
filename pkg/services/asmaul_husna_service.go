@@ -1,7 +1,7 @@
 package services
 
 import (
-	entities "asmaul-husna/pkg/entities/generated"
+	entities "asmaul-husna/pkg/entities"
 	"asmaul-husna/pkg/models/converters"
 	"asmaul-husna/pkg/models/responses"
 	"asmaul-husna/pkg/utils"

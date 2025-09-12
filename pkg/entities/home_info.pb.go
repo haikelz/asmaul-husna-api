@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.8
 // 	protoc        v3.19.6
-// source: pkg/entities/proto/home_info.proto
+// source: home_info.proto
 
 package entities
 
@@ -32,7 +32,7 @@ type EndpointsInfo struct {
 
 func (x *EndpointsInfo) Reset() {
 	*x = EndpointsInfo{}
-	mi := &file_pkg_entities_proto_home_info_proto_msgTypes[0]
+	mi := &file_home_info_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *EndpointsInfo) String() string {
 func (*EndpointsInfo) ProtoMessage() {}
 
 func (x *EndpointsInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_entities_proto_home_info_proto_msgTypes[0]
+	mi := &file_home_info_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *EndpointsInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EndpointsInfo.ProtoReflect.Descriptor instead.
 func (*EndpointsInfo) Descriptor() ([]byte, []int) {
-	return file_pkg_entities_proto_home_info_proto_rawDescGZIP(), []int{0}
+	return file_home_info_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *EndpointsInfo) GetAll() string {
@@ -92,7 +92,7 @@ type HomeInfo struct {
 
 func (x *HomeInfo) Reset() {
 	*x = HomeInfo{}
-	mi := &file_pkg_entities_proto_home_info_proto_msgTypes[1]
+	mi := &file_home_info_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -104,7 +104,7 @@ func (x *HomeInfo) String() string {
 func (*HomeInfo) ProtoMessage() {}
 
 func (x *HomeInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_entities_proto_home_info_proto_msgTypes[1]
+	mi := &file_home_info_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -117,7 +117,7 @@ func (x *HomeInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HomeInfo.ProtoReflect.Descriptor instead.
 func (*HomeInfo) Descriptor() ([]byte, []int) {
-	return file_pkg_entities_proto_home_info_proto_rawDescGZIP(), []int{1}
+	return file_home_info_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *HomeInfo) GetAuthor() string {
@@ -141,11 +141,11 @@ func (x *HomeInfo) GetEndpoints() *EndpointsInfo {
 	return nil
 }
 
-var File_pkg_entities_proto_home_info_proto protoreflect.FileDescriptor
+var File_home_info_proto protoreflect.FileDescriptor
 
-const file_pkg_entities_proto_home_info_proto_rawDesc = "" +
+const file_home_info_proto_rawDesc = "" +
 	"\n" +
-	"\"pkg/entities/proto/home_info.proto\x12\bentities\"O\n" +
+	"\x0fhome_info.proto\x12\bentities\"O\n" +
 	"\rEndpointsInfo\x12\x10\n" +
 	"\x03all\x18\x01 \x01(\tR\x03all\x12\x16\n" +
 	"\x06urutan\x18\x02 \x01(\tR\x06urutan\x12\x14\n" +
@@ -158,23 +158,23 @@ const file_pkg_entities_proto_home_info_proto_rawDesc = "" +
 	"\tendpoints\x18\x03 \x01(\v2\x17.entities.EndpointsInfoR\tendpointsB\x1bZ\x19asmaul-husna/pkg/entitiesb\x06proto3"
 
 var (
-	file_pkg_entities_proto_home_info_proto_rawDescOnce sync.Once
-	file_pkg_entities_proto_home_info_proto_rawDescData []byte
+	file_home_info_proto_rawDescOnce sync.Once
+	file_home_info_proto_rawDescData []byte
 )
 
-func file_pkg_entities_proto_home_info_proto_rawDescGZIP() []byte {
-	file_pkg_entities_proto_home_info_proto_rawDescOnce.Do(func() {
-		file_pkg_entities_proto_home_info_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_entities_proto_home_info_proto_rawDesc), len(file_pkg_entities_proto_home_info_proto_rawDesc)))
+func file_home_info_proto_rawDescGZIP() []byte {
+	file_home_info_proto_rawDescOnce.Do(func() {
+		file_home_info_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_home_info_proto_rawDesc), len(file_home_info_proto_rawDesc)))
 	})
-	return file_pkg_entities_proto_home_info_proto_rawDescData
+	return file_home_info_proto_rawDescData
 }
 
-var file_pkg_entities_proto_home_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_pkg_entities_proto_home_info_proto_goTypes = []any{
+var file_home_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_home_info_proto_goTypes = []any{
 	(*EndpointsInfo)(nil), // 0: entities.EndpointsInfo
 	(*HomeInfo)(nil),      // 1: entities.HomeInfo
 }
-var file_pkg_entities_proto_home_info_proto_depIdxs = []int32{
+var file_home_info_proto_depIdxs = []int32{
 	0, // 0: entities.HomeInfo.endpoints:type_name -> entities.EndpointsInfo
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
@@ -183,26 +183,26 @@ var file_pkg_entities_proto_home_info_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_pkg_entities_proto_home_info_proto_init() }
-func file_pkg_entities_proto_home_info_proto_init() {
-	if File_pkg_entities_proto_home_info_proto != nil {
+func init() { file_home_info_proto_init() }
+func file_home_info_proto_init() {
+	if File_home_info_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_entities_proto_home_info_proto_rawDesc), len(file_pkg_entities_proto_home_info_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_home_info_proto_rawDesc), len(file_home_info_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pkg_entities_proto_home_info_proto_goTypes,
-		DependencyIndexes: file_pkg_entities_proto_home_info_proto_depIdxs,
-		MessageInfos:      file_pkg_entities_proto_home_info_proto_msgTypes,
+		GoTypes:           file_home_info_proto_goTypes,
+		DependencyIndexes: file_home_info_proto_depIdxs,
+		MessageInfos:      file_home_info_proto_msgTypes,
 	}.Build()
-	File_pkg_entities_proto_home_info_proto = out.File
-	file_pkg_entities_proto_home_info_proto_goTypes = nil
-	file_pkg_entities_proto_home_info_proto_depIdxs = nil
+	File_home_info_proto = out.File
+	file_home_info_proto_goTypes = nil
+	file_home_info_proto_depIdxs = nil
 }
