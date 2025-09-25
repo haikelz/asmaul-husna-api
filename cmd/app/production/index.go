@@ -11,6 +11,12 @@ import (
 
 // @title Asmaul Husna API
 // @version 1.0
+// @description Asmaul Husna API
+// @host https://asmaul-husna-api.vercel.app
+// @basePath /
+// @schemes http
+// @consumes application/json
+// @produces application/json
 // @termsOfService http://swagger.io/terms/
 // @contact.name API Support
 // @contact.url http://www.swagger.io/support

@@ -1,3 +1,4 @@
+basePath: /
 definitions:
   entities.EndpointsInfo:
     properties:
@@ -46,11 +47,13 @@ definitions:
       urutan:
         type: integer
     type: object
+host: https://asmaul-husna-api.vercel.app
 info:
   contact:
     email: support@swagger.io
     name: API Support
     url: http://www.swagger.io/support
+  description: Asmaul Husna API
   license:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: http://swagger.io/terms/
@@ -160,4 +163,6 @@ paths:
       summary: Get Asma'ul Husna based on latin
       tags:
       - AsmaulHusna
+schemes:
+- http
 swagger: "2.0"

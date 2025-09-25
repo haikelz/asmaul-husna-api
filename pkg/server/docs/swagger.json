@@ -1,6 +1,10 @@
 {
+    "schemes": [
+        "http"
+    ],
     "swagger": "2.0",
     "info": {
+        "description": "Asmaul Husna API",
         "title": "Asmaul Husna API",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
@@ -13,6 +17,8 @@
         },
         "version": "1.0"
     },
+    "host": "https://asmaul-husna-api.vercel.app",
+    "basePath": "/",
     "paths": {
         "/": {
             "get": {

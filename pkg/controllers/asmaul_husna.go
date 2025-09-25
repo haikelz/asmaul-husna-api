@@ -81,7 +81,7 @@ func (ac *AsmaulHusnaController) AllAsmaulHusnaHandler(c *fiber.Ctx) error {
 // @Router 	/api/{urutan}  	[get]
 func (ac *AsmaulHusnaController) AsmaulHusnaBasedOnUrutanHandler(c *fiber.Ctx) error {
 	urutan, err := c.ParamsInt("urutan")
-	if err != nil {
+	if err != nil || urutan < 1 || urutan > 99 {
 		return utils.ErrorResponse(c, fiber.StatusBadRequest, err.Error())
 	}
 
