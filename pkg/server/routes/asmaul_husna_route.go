@@ -2,9 +2,12 @@ package routes
 
 import (
 	"asmaul-husna/pkg/controllers"
+	"asmaul-husna/pkg/middleware"
 	"asmaul-husna/pkg/services"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/adaptor"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func AsmaulHusnaRoute(api fiber.Router) {
@@ -15,6 +18,7 @@ func AsmaulHusnaRoute(api fiber.Router) {
 
 	api.Get("/", asmaulHusnaController.HomeInfoHandler)
 
+	api.Use("/metrics", middleware.AuthMiddleware, adaptor.HTTPHandler(promhttp.Handler()))
 	route.Get("all", asmaulHusnaController.AllAsmaulHusnaHandler)
 	route.Get("/latin/:latin", asmaulHusnaController.AsmaulHusnaBasedOnLatinHandler)
 	route.Get("/:urutan", asmaulHusnaController.AsmaulHusnaBasedOnUrutanHandler)

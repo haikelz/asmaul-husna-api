@@ -4,9 +4,11 @@ import (
 	entities "asmaul-husna/pkg/entities"
 	"asmaul-husna/pkg/services"
 	"asmaul-husna/pkg/utils"
+	"net/http"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gosimple/slug"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 type AsmaulHusnaController struct {
@@ -105,7 +107,6 @@ func (ac *AsmaulHusnaController) AsmaulHusnaBasedOnUrutanHandler(c *fiber.Ctx) e
 // @Failure 500 {object} models.APIErrorResponse "Internal Server Error"
 // @Router /api/latin/{latin} [get]
 func (ac *AsmaulHusnaController) AsmaulHusnaBasedOnLatinHandler(c *fiber.Ctx) error {
-	// Decode a fresh URL into the clean one
 	decoded, err := utils.RemoveURLEncoding(c.Params("latin"))
 	if err != nil {
 		return utils.ErrorResponse(c, fiber.StatusBadRequest, err.Error())
@@ -119,4 +120,25 @@ func (ac *AsmaulHusnaController) AsmaulHusnaBasedOnLatinHandler(c *fiber.Ctx) er
 	}
 
 	return utils.SuccessResponse(c, fiber.StatusOK, 1, asmaulHusna)
+}
+
+type MetricsEndpointBody struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
+}
+
+// MetricsHandler godoc
+// @Summary Get Metrics
+// @Description Get Metrics
+// @Tags Metrics
+// @Accept json
+// @Produce json
+// @Error 400 {object} models.APIErrorResponse "Bad Request"
+// @Failure 500 {object} models.APIErrorResponse "Internal Server Error"
+// @Router /metrics [get]
+// @Security BearerAuth
+// @in header
+// @name Authorization
+func MetricsHandler() http.Handler {
+	return promhttp.Handler()
 }

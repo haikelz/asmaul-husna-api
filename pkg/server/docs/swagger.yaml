@@ -163,6 +163,29 @@ paths:
       summary: Get Asma'ul Husna based on latin
       tags:
       - AsmaulHusna
+  /metrics:
+    get:
+      consumes:
+      - application/json
+      description: Get Metrics
+      produces:
+      - application/json
+      responses:
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.APIErrorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get Metrics
+      tags:
+      - Metrics
 schemes:
 - http
+securityDefinitions:
+  BearerAuth:
+    description: Enter the token with the `Bearer ` prefix."
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"

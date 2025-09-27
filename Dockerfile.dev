@@ -11,5 +11,4 @@ COPY . ./
 
 EXPOSE 5000
 
-# Use air for hot reloading
 CMD ["air", "-c", ".air.toml"]

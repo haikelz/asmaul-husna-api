@@ -20,7 +20,10 @@ func NewAsmaulHusnaService() *AsmaulHusnaService {
 }
 
 func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int) ([]*responses.AsmaulHusna, error) {
-	allAsmaulHusna := utils.LoadAsmaulHusnaData()
+	s.mu.Lock()
+	allAsmaulHusna := utils.AsmaulHusnaData
+	s.mu.Unlock()
+
 	allAsmaulHusnaLength := len(allAsmaulHusna)
 
 	if page == 1 && limit == 0 {
@@ -60,7 +63,7 @@ func (s *AsmaulHusnaService) GetAllAsmaulHusnaWithPagination(page int, limit int
 
 func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnUrutan(urutan int) (*responses.AsmaulHusna, error) {
 	s.mu.Lock()
-	allAsmaulHusna := utils.LoadAsmaulHusnaData()
+	allAsmaulHusna := utils.AsmaulHusnaData
 	s.mu.Unlock()
 
 	var asmaulHusna *entities.AsmaulHusna
@@ -77,7 +80,7 @@ func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnUrutan(urutan int) (*responses
 
 func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnLatin(latin string) (*responses.AsmaulHusna, error) {
 	s.mu.Lock()
-	allAsmaulHusna := utils.LoadAsmaulHusnaData()
+	allAsmaulHusna := utils.AsmaulHusnaData
 	s.mu.Unlock()
 
 	var asmaulHusna *entities.AsmaulHusna
@@ -88,9 +91,6 @@ func (s *AsmaulHusnaService) GetAsmaulHusnaBasedOnLatin(latin string) (*response
 			break
 		}
 	}
-
-	s.mu.Lock()
-	defer s.mu.Unlock()
 
 	return converters.ConvertAsmaulHusnaToAsmaulHusnaResponse(asmaulHusna), nil
 }
