@@ -3,7 +3,13 @@ package app
 import (
 	"asmaul-husna/pkg/configs"
 	"asmaul-husna/pkg/server"
+	"context"
+	"log"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"github.com/gofiber/contrib/swagger"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"
@@ -31,5 +37,28 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	server.RegisterFiberRoutes()
 	server.Use(swagger.New(configs.SwgCfg))
 
-	adaptor.FiberApp(server.App).ServeHTTP(w, r)
+	quit := make(chan os.Signal, 1)
+	serverError := make(chan error, 1)
+
+	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
+
+	go func() {
+		adaptor.FiberApp(server.App).ServeHTTP(w, r)
+	}()
+
+	select {
+	case err := <-serverError:
+		log.Fatalf("Server error: %v", err)
+	case <-quit:
+		log.Printf("Shutting down server....")
+
+		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		defer cancel()
+
+		if err := server.ShutdownWithContext(ctx); err != nil {
+			log.Fatalf("Server shutdown error: %v", err)
+		} else {
+			log.Println("Server shutdown complete")
+		}
+	}
 }

@@ -2,4 +2,6 @@ tmp
 README.md
 dist
 .vercel
-.air.toml
+.dockerignore
+docker-compose.yaml
+Dockerfile.dev

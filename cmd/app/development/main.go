@@ -4,6 +4,12 @@ import (
 	"asmaul-husna/pkg/configs"
 	"asmaul-husna/pkg/middleware"
 	"asmaul-husna/pkg/server"
+	"context"
+	"log"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"github.com/gofiber/contrib/swagger"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"
@@ -31,5 +37,31 @@ func main() {
 	server.Use("/metrics", adaptor.HTTPHandler(promhttp.Handler()))
 	server.Use(swagger.New(configs.SwgCfg))
 
-	server.Listen(":5000")
+	quit := make(chan os.Signal, 1)
+	serverError := make(chan error, 1)
+
+	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
+
+	go func() {
+		log.Println("Starting server on port 5000")
+		if err := server.Listen(":5000"); err != nil {
+			serverError <- err
+		}
+	}()
+
+	select {
+	case err := <-serverError:
+		log.Fatalf("Server error: %v", err)
+	case <-quit:
+		log.Printf("Shutting down server....")
+
+		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		defer cancel()
+
+		if err := server.ShutdownWithContext(ctx); err != nil {
+			log.Fatalf("Server shutdown error: %v", err)
+		} else {
+			log.Println("Server shutdown complete")
+		}
+	}
 }
