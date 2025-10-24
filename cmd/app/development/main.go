@@ -3,6 +3,7 @@ package main
 import (
 	"asmaul-husna/pkg/configs"
 	"asmaul-husna/pkg/server"
+	"asmaul-husna/pkg/utils"
 	"context"
 	"log"
 	"os"
@@ -42,11 +43,10 @@ func main() {
 	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
 
 	go func() {
-		log.Println("Starting server on port 5000")
-		if err := server.Listen(":5000"); err != nil {
+		log.Println("Starting server on port", utils.EnvVariables().PORT)
+		if err := server.Listen(":" + utils.EnvVariables().PORT); err != nil {
 			serverError <- err
 		}
-
 	}()
 
 	select {

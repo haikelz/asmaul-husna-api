@@ -12,6 +12,7 @@ func EnvVariables() entities.Env {
 	v := configs.NewViper()
 
 	_ = v.BindEnv("AUTHORIZED_TOKEN")
+	_ = v.BindEnv("PORT")
 
 	if err := v.ReadInConfig(); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); !ok {
@@ -20,6 +21,7 @@ func EnvVariables() entities.Env {
 	}
 
 	return entities.Env{
+		PORT:             v.GetString("PORT"),
 		AUTHORIZED_TOKEN: v.GetString("AUTHORIZED_TOKEN"),
 	}
 }

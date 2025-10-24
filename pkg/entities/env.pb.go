@@ -24,6 +24,7 @@ const (
 type Env struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	AUTHORIZED_TOKEN string                 `protobuf:"bytes,1,opt,name=AUTHORIZED_TOKEN,json=AUTHORIZEDTOKEN,proto3" json:"AUTHORIZED_TOKEN,omitempty"`
+	PORT             string                 `protobuf:"bytes,2,opt,name=PORT,proto3" json:"PORT,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -65,13 +66,21 @@ func (x *Env) GetAUTHORIZED_TOKEN() string {
 	return ""
 }
 
+func (x *Env) GetPORT() string {
+	if x != nil {
+		return x.PORT
+	}
+	return ""
+}
+
 var File_pkg_entities_env_proto protoreflect.FileDescriptor
 
 const file_pkg_entities_env_proto_rawDesc = "" +
 	"\n" +
-	"\x16pkg/entities/env.proto\x12\bentities\"0\n" +
+	"\x16pkg/entities/env.proto\x12\bentities\"D\n" +
 	"\x03Env\x12)\n" +
-	"\x10AUTHORIZED_TOKEN\x18\x01 \x01(\tR\x0fAUTHORIZEDTOKENB\x1bZ\x19asmaul-husna/pkg/entitiesb\x06proto3"
+	"\x10AUTHORIZED_TOKEN\x18\x01 \x01(\tR\x0fAUTHORIZEDTOKEN\x12\x12\n" +
+	"\x04PORT\x18\x02 \x01(\tR\x04PORTB\x1bZ\x19asmaul-husna/pkg/entitiesb\x06proto3"
 
 var (
 	file_pkg_entities_env_proto_rawDescOnce sync.Once

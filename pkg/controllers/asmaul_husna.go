@@ -134,6 +134,7 @@ type MetricsEndpointBody struct {
 // @Accept json
 // @Produce json
 // @Error 400 {object} models.APIErrorResponse "Bad Request"
+// @Error 401 {object} models.APIErrorResponse "Unauthorized"
 // @Failure 500 {object} models.APIErrorResponse "Internal Server Error"
 // @Router /metrics [get]
 // @Security BearerAuth
