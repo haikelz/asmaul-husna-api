@@ -2,8 +2,9 @@ package server
 
 import (
 	"asmaul-husna/pkg/configs"
+	"os"
 
-	"github.com/gofiber/contrib/fiberzap/v2"
+	"github.com/gofiber/contrib/fiberzerolog"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -13,7 +14,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/healthcheck"
 	"github.com/gofiber/fiber/v2/middleware/helmet"
 	"github.com/gofiber/fiber/v2/middleware/recover"
-	"go.uber.org/zap"
+	"github.com/rs/zerolog"
 )
 
 type FiberApp struct {
@@ -25,10 +26,9 @@ func New() *FiberApp {
 		App: configs.FbrCfg,
 	}
 
-	logger, _ := zap.NewProduction()
-	defer logger.Sync()
+	logger := zerolog.New(os.Stderr).With().Timestamp().Logger()
 
-	server.Use(fiberzap.New(fiberzap.Config{Logger: logger}))
+	server.Use(fiberzerolog.New(fiberzerolog.Config{Logger: &logger}))
 
 	server.Use(cors.New())
 	server.Use(compress.New(compress.Config{Level: compress.LevelBestSpeed}))

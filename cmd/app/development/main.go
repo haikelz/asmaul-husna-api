@@ -46,6 +46,7 @@ func main() {
 		if err := server.Listen(":5000"); err != nil {
 			serverError <- err
 		}
+
 	}()
 
 	select {

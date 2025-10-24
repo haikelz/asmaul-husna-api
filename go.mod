@@ -4,14 +4,14 @@ go 1.23.1
 
 require (
 	github.com/bytedance/sonic v1.12.7
-	github.com/gofiber/contrib/fiberzap/v2 v2.1.6
+	github.com/gofiber/contrib/fiberzerolog v1.0.3
 	github.com/gofiber/contrib/swagger v1.2.0
 	github.com/gofiber/fiber/v2 v2.52.8
 	github.com/gosimple/slug v1.15.0
 	github.com/prometheus/client_golang v1.20.5
+	github.com/rs/zerolog v1.34.0
 	github.com/spf13/viper v1.21.0
 	github.com/swaggo/swag v1.16.4
-	go.uber.org/zap v1.27.0
 	google.golang.org/protobuf v1.36.9
 )
 
@@ -64,7 +64,6 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.63.0 // indirect
 	go.mongodb.org/mongo-driver v1.13.1 // indirect
-	go.uber.org/multierr v1.10.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/arch v0.13.0 // indirect
 	golang.org/x/sys v0.34.0 // indirect
