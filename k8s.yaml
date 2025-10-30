@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asmaul-husna-api
+  labels:
+    app: asmaul-husna-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: asmaul-husna-api
+  template:
+    metadata:
+      labels:
+        app: asmaul-husna-api
+    spec:
+      containers:
+        - name: asmaul-husna-api
+          image: haikelilham/asmaul-husna-api:latest
+          envFrom:
+            - secretRef:
+                name: asmaul-husna-api-env
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 100m
+            limits:
+              memory: 256Mi
+              cpu: 200m
+---
+
