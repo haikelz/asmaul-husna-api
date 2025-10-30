@@ -8,10 +8,9 @@ import (
 	"github.com/spf13/viper"
 )
 
-func EnvVariables() entities.Env {
+func EnvVariables() *entities.Env {
 	v := configs.NewViper()
 
-	_ = v.BindEnv("AUTHORIZED_TOKEN")
 	_ = v.BindEnv("PORT")
 
 	if err := v.ReadInConfig(); err != nil {
@@ -20,8 +19,9 @@ func EnvVariables() entities.Env {
 		}
 	}
 
-	return entities.Env{
-		PORT:             v.GetString("PORT"),
-		AUTHORIZED_TOKEN: v.GetString("AUTHORIZED_TOKEN"),
+	env := entities.Env{
+		PORT: v.GetString("PORT"),
 	}
+
+	return &env
 }

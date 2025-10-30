@@ -2,7 +2,6 @@ package server
 
 import (
 	"asmaul-husna/pkg/configs"
-	"os"
 
 	"github.com/gofiber/contrib/fiberzerolog"
 	"github.com/gofiber/fiber/v2"
@@ -14,7 +13,6 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/healthcheck"
 	"github.com/gofiber/fiber/v2/middleware/helmet"
 	"github.com/gofiber/fiber/v2/middleware/recover"
-	"github.com/rs/zerolog"
 )
 
 type FiberApp struct {
@@ -26,7 +24,7 @@ func New() *FiberApp {
 		App: configs.FbrCfg,
 	}
 
-	logger := zerolog.New(os.Stderr).With().Timestamp().Logger()
+	logger := configs.InitLogger()
 
 	server.Use(fiberzerolog.New(fiberzerolog.Config{Logger: &logger}))
 

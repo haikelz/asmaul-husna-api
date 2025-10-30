@@ -5,3 +5,4 @@ dist
 .dockerignore
 docker-compose.yaml
 Dockerfile.dev
+Dockerfile

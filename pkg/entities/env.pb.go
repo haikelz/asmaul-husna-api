@@ -22,11 +22,10 @@ const (
 )
 
 type Env struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	AUTHORIZED_TOKEN string                 `protobuf:"bytes,1,opt,name=AUTHORIZED_TOKEN,json=AUTHORIZEDTOKEN,proto3" json:"AUTHORIZED_TOKEN,omitempty"`
-	PORT             string                 `protobuf:"bytes,2,opt,name=PORT,proto3" json:"PORT,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PORT          string                 `protobuf:"bytes,2,opt,name=PORT,proto3" json:"PORT,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Env) Reset() {
@@ -59,13 +58,6 @@ func (*Env) Descriptor() ([]byte, []int) {
 	return file_pkg_entities_env_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Env) GetAUTHORIZED_TOKEN() string {
-	if x != nil {
-		return x.AUTHORIZED_TOKEN
-	}
-	return ""
-}
-
 func (x *Env) GetPORT() string {
 	if x != nil {
 		return x.PORT
@@ -77,9 +69,8 @@ var File_pkg_entities_env_proto protoreflect.FileDescriptor
 
 const file_pkg_entities_env_proto_rawDesc = "" +
 	"\n" +
-	"\x16pkg/entities/env.proto\x12\bentities\"D\n" +
-	"\x03Env\x12)\n" +
-	"\x10AUTHORIZED_TOKEN\x18\x01 \x01(\tR\x0fAUTHORIZEDTOKEN\x12\x12\n" +
+	"\x16pkg/entities/env.proto\x12\bentities\"\x19\n" +
+	"\x03Env\x12\x12\n" +
 	"\x04PORT\x18\x02 \x01(\tR\x04PORTB\x1bZ\x19asmaul-husna/pkg/entitiesb\x06proto3"
 
 var (
