@@ -6,6 +6,9 @@ import (
 )
 
 func ConvertAsmaulHusnaToAsmaulHusnaResponse(asmaulHusna *entities.AsmaulHusna) *responses.AsmaulHusna {
+	if asmaulHusna == nil {
+		return nil
+	}
 	return &responses.AsmaulHusna{
 		Urutan: asmaulHusna.Urutan,
 		Arab:   asmaulHusna.Arab,

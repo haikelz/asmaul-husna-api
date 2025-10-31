@@ -84,7 +84,11 @@ func (ac *AsmaulHusnaController) AllAsmaulHusnaHandler(c *fiber.Ctx) error {
 func (ac *AsmaulHusnaController) AsmaulHusnaBasedOnUrutanHandler(c *fiber.Ctx) error {
 	urutan, err := c.ParamsInt("urutan")
 	if err != nil || urutan < 1 || urutan > 99 {
-		return utils.ErrorResponse(c, fiber.StatusBadRequest, err.Error())
+		errorMsg := "Invalid urutan parameter. Must be between 1 and 99"
+		if err != nil {
+			errorMsg = err.Error()
+		}
+		return utils.ErrorResponse(c, fiber.StatusBadRequest, errorMsg)
 	}
 
 	asmaulHusna, err := ac.AsmaulHusnaService.GetAsmaulHusnaBasedOnUrutan(urutan)
