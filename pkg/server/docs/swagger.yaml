@@ -47,7 +47,7 @@ definitions:
       urutan:
         type: integer
     type: object
-host: https://asmaul-husna-api.vercel.app
+host: asmaul-husna-api.vercel.app
 info:
   contact:
     email: support@swagger.io
@@ -181,7 +181,7 @@ paths:
       tags:
       - Metrics
 schemes:
-- http
+- https
 securityDefinitions:
   BearerAuth:
     description: Enter the token with the `Bearer ` prefix."

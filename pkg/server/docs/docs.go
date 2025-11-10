@@ -298,9 +298,9 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "https://asmaul-husna-api.vercel.app",
+	Host:             "asmaul-husna-api.vercel.app",
 	BasePath:         "/",
-	Schemes:          []string{"http"},
+	Schemes:          []string{"https"},
 	Title:            "Asmaul Husna API",
 	Description:      "Asmaul Husna API",
 	InfoInstanceName: "swagger",
