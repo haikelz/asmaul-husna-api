@@ -4,13 +4,11 @@ package docs
 import "github.com/swaggo/swag"
 
 const docTemplate = `{
-    "schemes": [
-        "https"
-    ],
+    "schemes": {{ marshal .Schemes }},
     "swagger": "2.0",
     "info": {
-        "description": "Asmaul Husna API",
-        "title": "Asmaul Husna API",
+        "description": "{{escape .Description}}",
+        "title": "{{.Title}}",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
@@ -20,10 +18,10 @@ const docTemplate = `{
         "license": {
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         },
-        "version": "1.0"
+        "version": "{{.Version}}"
     },
-    "host": "asmaul-husna-api.vercel.app",
-    "basePath": "/",
+    "host": "{{.Host}}",
+    "basePath": "{{.BasePath}}",
     "paths": {
         "/": {
             "get": {
@@ -289,7 +287,7 @@ const docTemplate = `{
     },
     "securityDefinitions": {
         "BearerAuth": {
-            "description": "Enter the token with the Bearer prefix.",
+            "description": "Enter the token with the ` + "`" + `Bearer ` + "`" + ` prefix.\"",
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"

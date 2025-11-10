@@ -11,7 +11,7 @@ var builder strings.Builder
 const generated = `
 {
     "schemes": [
-        "http"
+        "https"
     ],
     "swagger": "2.0",
     "info": {
@@ -28,7 +28,7 @@ const generated = `
         },
         "version": "1.0"
     },
-    "host": "https://asmaul-husna-api.vercel.app",
+    "host": "asmaul-husna-api.vercel.app",
     "basePath": "/",
     "paths": {
         "/": {
@@ -295,7 +295,7 @@ const generated = `
     },
     "securityDefinitions": {
         "BearerAuth": {
-            "description": "Enter the token with the Bearer prefix.\"",
+            "description": "Enter the token with the Bearer prefix.",
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"
