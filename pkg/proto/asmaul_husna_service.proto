@@ -1,0 +1,97 @@
+syntax = "proto3";
+package asmaulhusna;
+option go_package = "asmaul-husna/pkg/proto";
+
+import "google/api/annotations.proto";
+
+// Empty message
+message Empty {}
+
+// Home Info
+message HomeInfoRequest {}
+
+message Endpoints {
+  string all = 1;
+  string urutan = 2;
+  string latin = 3;
+}
+
+message HomeInfoResponse {
+  string author = 1;
+  string repository = 2;
+  Endpoints endpoints = 3;
+}
+
+// Asmaul Husna
+message AsmaulHusna {
+  int32 urutan = 1;
+  string latin = 2;
+  string arab = 3;
+  string arti = 4;
+}
+
+// Get All Request/Response
+message GetAllRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message GetAllResponse {
+  int32 status_code = 1;
+  int32 total = 2;
+  repeated AsmaulHusna data = 3;
+}
+
+// Get by Urutan
+message GetByUrutanRequest {
+  int32 urutan = 1;
+}
+
+// Get by Latin
+message GetByLatinRequest {
+  string latin = 1;
+}
+
+// Single item response
+message GetOneResponse {
+  int32 status_code = 1;
+  int32 total = 2;
+  AsmaulHusna data = 3;
+}
+
+// Error response
+message ErrorResponse {
+  int32 status_code = 1;
+  string message = 2;
+}
+
+// gRPC Service Definition with REST/HTTP endpoints
+service AsmaulHusnaService {
+  // Get API home info
+  rpc GetHomeInfo(HomeInfoRequest) returns (HomeInfoResponse) {
+    option (google.api.http) = {
+      get: "/"
+    };
+  }
+  
+  // Get all Asma'ul Husna with optional pagination
+  rpc GetAllAsmaulHusna(GetAllRequest) returns (GetAllResponse) {
+    option (google.api.http) = {
+      get: "/api/all"
+    };
+  }
+  
+  // Get Asma'ul Husna by urutan (1-99)
+  rpc GetAsmaulHusnaByUrutan(GetByUrutanRequest) returns (GetOneResponse) {
+    option (google.api.http) = {
+      get: "/api/{urutan}"
+    };
+  }
+  
+  // Get Asma'ul Husna by latin name
+  rpc GetAsmaulHusnaByLatin(GetByLatinRequest) returns (GetOneResponse) {
+    option (google.api.http) = {
+      get: "/api/latin/{latin}"
+    };
+  }
+}
